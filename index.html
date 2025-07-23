@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favico.svg">
+    <link rel="icon" type="image/png" href="favico.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <title>NoiRhythm</title>
+</head>
+<body>
+    <div class="container bg-black flex">
+        <div class="left bg-black">
+            <div class="close">
+                <img class="invert" src = "svg/close.svg" alt="">
+            </div>
+            <div class="home bg-grey rounded m-1 p-1">
+                <ul>
+                    <li class="noirhythm-brand">
+<svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" class="noirhythm-logo">
+                          <defs>
+                            <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" style="stop-color:#6B21A8;stop-opacity:1" />
+                              <stop offset="50%" style="stop-color:#0E7490;stop-opacity:1" />
+                              <stop offset="100%" style="stop-color:#7C2D92;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" style="stop-color:#0E7490;stop-opacity:0.9" />
+                              <stop offset="100%" style="stop-color:#6B21A8;stop-opacity:0.6" />
+                            </linearGradient>
+                            <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#0E7490;stop-opacity:0.8" />
+                              <stop offset="100%" style="stop-color:#6B21A8;stop-opacity:0.6" />
+                            </linearGradient>
+                            <filter id="glow">
+                              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                              <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                            </filter>
+                          </defs>
+                          
+                          <!-- Background circle with enhanced border -->
+                          <circle cx="60" cy="60" r="35" fill="none" stroke="url(#circleGradient)" stroke-width="2" opacity="0.8">
+                            <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+                          </circle>
+                          
+                          <!-- Sound wave visualization -->
+                          <g transform="translate(25, 60)">
+                            <rect x="0" y="-15" width="3" height="30" fill="url(#waveGradient)" opacity="0.7">
+                              <animate attributeName="height" values="30;10;25;30" dur="1.5s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-15;-5;-12.5;-15" dur="1.5s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="8" y="-20" width="3" height="40" fill="url(#waveGradient)" opacity="0.8">
+                              <animate attributeName="height" values="40;15;35;40" dur="1.8s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-20;-7.5;-17.5;-20" dur="1.8s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="16" y="-12" width="3" height="24" fill="url(#waveGradient)" opacity="0.6">
+                              <animate attributeName="height" values="24;8;20;24" dur="1.2s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-12;-4;-10;-12" dur="1.2s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="24" y="-25" width="3" height="50" fill="url(#waveGradient)" opacity="0.9">
+                              <animate attributeName="height" values="50;20;40;50" dur="2s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-25;-10;-20;-25" dur="2s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="32" y="-18" width="3" height="36" fill="url(#waveGradient)" opacity="0.7">
+                              <animate attributeName="height" values="36;12;28;36" dur="1.6s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-18;-6;-14;-18" dur="1.6s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="40" y="-22" width="3" height="44" fill="url(#waveGradient)" opacity="0.8">
+                              <animate attributeName="height" values="44;16;32;44" dur="1.4s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-22;-8;-16;-22" dur="1.4s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="48" y="-14" width="3" height="28" fill="url(#waveGradient)" opacity="0.6">
+                              <animate attributeName="height" values="28;10;22;28" dur="1.7s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-14;-5;-11;-14" dur="1.7s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="56" y="-20" width="3" height="40" fill="url(#waveGradient)" opacity="0.8">
+                              <animate attributeName="height" values="40;14;30;40" dur="1.9s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-20;-7;-15;-20" dur="1.9s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="64" y="-16" width="3" height="32" fill="url(#waveGradient)" opacity="0.7">
+                              <animate attributeName="height" values="32;12;24;32" dur="1.3s" repeatCount="indefinite"/>
+                              <animate attributeName="y" values="-16;-6;-12;-16" dur="1.3s" repeatCount="indefinite"/>
+                            </rect>
+                          </g>
+                          
+                          <!-- Main logo text -->
+                          <text x="130" y="45" font-family="'Arial', sans-serif" font-size="28" font-weight="bold" fill="url(#textGradient)" filter="url(#glow)">
+                            Noir
+                          </text>
+                          <text x="130" y="75" font-family="'Arial', sans-serif" font-size="28" font-weight="300" fill="#6B7280" opacity="0.9">
+                            Rhythm
+                          </text>
+                          
+                          <!-- Decorative elements -->
+                          <circle cx="350" cy="30" r="2" fill="#0E7490" opacity="0.7">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+                          </circle>
+                          <circle cx="360" cy="40" r="1.5" fill="#6B21A8" opacity="0.5">
+                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite"/>
+                          </circle>
+                          <circle cx="370" cy="25" r="1" fill="#7C2D92" opacity="0.6">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+                          </circle>
+                          
+                          <!-- Subtle connecting line -->
+                          <line x1="120" y1="60" x2="130" y2="60" stroke="#1F2937" stroke-width="1" opacity="0.4"/>
+                        </svg>
+                    </li>
+                    <li>
+                      <img class="revert" src="svg/home.svg" alt="home" style="margin: -1px;">
+                      <span style="font-family: 'Montserrat Alternates', sans-serif;">Home</span>
+                    </li>
+                    <li>
+                      <img class="invert" src="svg/search.svg" alt="search">
+                      <span style="font-family: 'Montserrat Alternates', sans-serif;">Search</span>
+</li>
+                </ul>
+            </div>
+
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading">
+                    <img class = "invert" src="svg/library.svg" alt="">
+                    <h2 style="margin-top: -4px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: lighter;">
+                        Your Library
+                    </h2>
+                </div>
+                
+                <div class="songlist">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right bg-grey rounded">
+            <div class="header">
+                <div class="nav">
+                    <div class="flex" style="align-items: center;justify-content: center;gap: 12px;margin-top: 10px;">
+                        <img  class= "invert hamburger" src ="svg/hamburger.svg" alt="">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:0px ;" width="24" height="24" fill="none" stroke="#1db954"" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 12px;cursor: pointer;">
+                        <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#1db954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                        <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="signupbtn" style="padding: 4px; margin-right: 10px;">Sign up</button>
+                    <button class="loginbtn" style="padding: 10px; margin-right: -10px;">Log in</button>
+                </div>
+            </div>
+            <div class="playlists">
+                <h1 style="padding-left: 15px; font-family: 'Poppins', sans-serif;font-weight: 600;">Your Playlists</h1>
+                <div class="cardContainer">
+                    <div data-folder = "hindi" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-right: 7px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/hindi.jpg" alt="" width="170px" >
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Hindi Mix</h2>
+                    </div>
+                    <div data-folder="english" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/english.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">English Mix</h2>
+                    </div>
+                    <div data-folder="spanish" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/spanish.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Spanish Mix</h2>
+                    </div>
+                    <div data-folder="rap" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/rap.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Hip-Hop</h2>
+                    </div>
+                      <div data-folder="dhh" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/dhh.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Desi Hip-Hop</h2>
+                    </div>
+                      <div data-folder="gym" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/gym.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">We Go Jim</h2>
+                    </div>
+                      <div data-folder="phonk" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/phonk.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Phonk Mix</h2>
+                    </div>
+                      <div data-folder="goth" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/goth.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Project Mayhem</h2>
+                    </div>
+                      <div data-folder="nostalgia" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/nostalgia.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Nostalgic</h2>
+                    </div>
+                      <div data-folder="south" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/south.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">South Indian</h2>
+                    </div>
+                      <div data-folder="anime" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/anime.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Anime Mix</h2>
+                    </div>
+                      <div data-folder="ncs" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/ncs.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Non Copyright</h2>
+                    </div>
+                      <div data-folder="impala" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/impala.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Tame Impala</h2>
+                    </div>
+                      <div data-folder="eminem" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/eminem.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">Slim Shady</h2>
+                    </div>
+                      <div data-folder="krsna" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
+                            <circle cx="12" cy="12" r="10" fill="#1db954"/>
+                            <path d="M10 8v8l6-4z" fill="black"/>
+                            </svg>
+                        </div>
+                        <img src="img/krsna.jpg" alt="" width="170px">
+                        <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">KR$NA</h2>
+                    </div>
+                    
+
+                </div>
+                <div class="playbar">
+                    <div class="seekbar">
+                        <div class="circle">
+
+                        </div>
+                    </div>
+                    <div class="flexbar">
+                        <div class="songinfo">Loading...</div>
+                        <div class="songbutton">
+                            <img id="previous" style="width: 33px;height: 33px;" src="svg/previous.svg" alt="">
+                            <img id="play" src="svg/play.svg" alt="">
+                            <img id="next" style="width: 33px;height: 33px;" src="svg/next.svg" alt="">
+                        </div>
+                        <div class="timevol">
+                            <div class="songtime" style="margin-top: 11px; font-size: 15px; position: relative;"></div>
+                            <div class="volume">
+                            <img src="svg/volume.svg" style="margin-top: -3px;" alt="">
+                            <div class="range">
+                                <input type="range" name="volume" style="cursor: pointer;" id="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <script src="script.js"></script>
+</body>
+</html>
