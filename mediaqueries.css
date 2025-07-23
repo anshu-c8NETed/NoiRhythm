@@ -1,0 +1,826 @@
+.container {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.left {
+    width: 25vw;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.right {
+    width: 75vw;
+    flex-grow: 1;
+}
+
+.hamburger, .close {
+    display: none;
+}
+
+/* Tablet and below - Enable hamburger functionality */
+@media (max-width: 1199px) {
+    .hamburger {
+        display: block !important;
+        cursor: pointer;
+    }
+    
+    .close {
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1002; /* Increased z-index */
+    }
+    
+    /* Hide left sidebar by default */
+    .left {
+        width: 0 !important;
+        min-width: 0 !important;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        z-index: 1001; /* Increased z-index */
+        transition: left 0.3s ease;
+        overflow: hidden;
+    }
+    
+    /* Show left sidebar when active */
+    .left.show {
+        left: 0;
+        width: 300px !important;
+        min-width: 300px !important;
+    }
+    
+    /* Right takes full width when left is hidden */
+    .right {
+        width: 100vw !important;
+        flex-grow: 1;
+        margin: 0;
+        padding-bottom: 90px; /* Add padding to prevent playbar overlap */
+    }
+    
+    /* Adjust playbar for full width */
+    .playbar {
+        width: 95vw !important;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999; /* Lower than sidebar */
+    }
+
+    /* Main content area adjustments */
+    .playlists {
+        height: calc(100vh - 140px) !important; /* Adjust for header and playbar */
+        overflow-y: auto;
+    }
+
+    .cardContainer {
+        max-height: calc(100vh - 200px) !important; /* Prevent overflow */
+        padding-bottom: 20px;
+    }
+
+    /* Button adjustments for tablet and below */
+    .buttons {
+        padding-right: 20px !important;
+        gap: 2px !important;
+        margin-right: 0 !important;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .signupbtn {
+        padding: 6px 10px !important;
+        font-size: 14px !important;
+        font-weight: 600;
+    }
+
+    .loginbtn {
+        padding: 8px 14px !important;
+        font-size: 14px !important;
+        font-weight: 600;
+        min-width: 65px !important;
+        white-space: nowrap;
+    }
+
+    .header {
+        padding: 30px 0 !important;
+        width: 100%;
+        overflow: visible;
+    }
+
+    /* NoirRhythm logo adjustments for tablet */
+    .noirhythm-logo {
+        width: 180px;
+        max-height: 60px;
+    }
+
+    /* Sidebar height adjustments */
+    .library {
+        min-height: calc(100vh - 160px) !important; /* Adjust for proper height */
+        max-height: calc(100vh - 160px) !important;
+        overflow-y: auto;
+    }
+
+    .songlist {
+        height: calc(100vh - 280px) !important; /* Proper height calculation */
+        overflow-y: auto;
+    }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+    /* Main container height management */
+    .right {
+        padding-bottom: 120px !important; /* Increased padding for mobile playbar */
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    /* Playlists container height fix */
+    .playlists {
+        height: calc(100vh - 160px) !important; /* Account for header and playbar */
+        overflow-y: auto;
+        padding-bottom: 20px;
+    }
+
+    /* Card container and cards */
+    .cardContainer {
+        justify-content: center;
+        padding: 0 15px;
+        flex-wrap: wrap;
+        margin: 10px 5px;
+        max-height: calc(100vh - 220px) !important; /* Prevent content overflow */
+        overflow-y: auto;
+        padding-bottom: 30px;
+    }
+    
+    .card {
+        width: 140px !important;
+        margin: 8px 6px;
+        padding: 12px 8px;
+    }
+    
+    .card img {
+        width: 100% !important;
+        height: auto;
+        max-width: 140px;
+    }
+    
+    .card h2 {
+        font-size: 14px;
+        margin-top: 8px;
+        text-align: center;
+        line-height: 1.2;
+    }
+    
+    /* Play button positioning for mobile cards */
+    .play {
+        top: 115px !important;
+        right: 15px !important;
+    }
+    
+    .play svg {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    /* Playlist heading */
+    .playlists h1 {
+        font-size: 22px !important;
+        text-align: center;
+        padding: 0 15px !important;
+        margin-bottom: 15px;
+    }
+    
+    /* Mobile playbar adjustments */
+    .playbar {
+        width: 98vw !important;
+        bottom: 5px;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 8px;
+        min-height: auto !important;
+        border-radius: 8px;
+        z-index: 998; /* Ensure it's below sidebar */
+    }
+    
+    .flexbar {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        padding: 0;
+        align-items: center;
+    }
+    
+    .seekbar {
+        order: -1;
+        width: 100%;
+        margin-top: 0 !important;
+        position: relative;
+        height: 4px;
+    }
+    
+    .songbutton {
+        order: 1;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 5px 0 !important;
+    }
+    
+    .songbutton img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .songinfo {
+        order: 2;
+        text-align: center;
+        font-size: 13px !important;
+        margin: 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px;
+        padding-top: 8px;
+    }
+    
+    .timevol {
+        order: 3;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .songtime {
+        font-size: 11px !important;
+        margin: 0 !important;
+    }
+    
+    .volume {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .volume img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .range input {
+        width: 70px;
+        height: 4px;
+    }
+    
+    /* Header adjustments for mobile - FIXED */
+    .header {
+        padding: 10px 0 !important;
+        flex-wrap: nowrap;
+        gap: 0;
+        margin-top: 3px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        overflow: hidden;
+        height: auto;
+        min-height: 60px;
+    }
+    
+    .header .nav {
+        flex-grow: 0;
+        padding: 0 12px !important;
+        flex-shrink: 0;
+    }
+    
+    .header .nav .flex {
+        gap: 6px !important;
+        margin-top: 5px !important;
+    }
+    
+    .header .nav svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    /* Mobile button styling - FIXED */
+    .buttons {
+        padding-right: 16px !important;
+        gap: 2px !important;
+        margin-right: 0 !important;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        align-items: center;
+        min-width: fit-content;
+    }
+    
+    .loginbtn {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+        font-weight: 600;
+        min-width: 60px !important;
+        white-space: nowrap;
+        border-radius: 18px;
+    }
+    
+    .signupbtn {
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+        font-weight: 600;
+    }
+    
+    /* Sidebar content adjustments */
+    .left.show {
+        width: 280px !important;
+        min-width: 280px !important;
+        z-index: 1001; /* Above playbar */
+    }
+    
+    .home ul li {
+        gap: 12px !important;
+        padding: 8px 5px;
+        font-size: 14px;
+    }
+    
+    .home ul li img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* NoirRhythm logo adjustments for mobile */
+    .noirhythm-logo {
+        width: 160px !important;
+        max-height: 55px !important;
+    }
+    
+    .library {
+        min-height: calc(100vh - 180px) !important;
+        max-height: calc(100vh - 180px) !important;
+        overflow-y: auto;
+    }
+    
+    .library .heading {
+        font-size: 14px;
+        gap: 6px !important;
+        position: sticky;
+        top: 0;
+        background: inherit;
+        z-index: 10;
+        padding-bottom: 10px;
+    }
+    
+    .library .heading img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .library .heading h2 {
+        font-size: 16px !important;
+        margin-top: -2px !important;
+    }
+    
+    .songlist {
+        height: calc(100vh - 320px) !important; /* Better height calculation */
+        margin: 10px 0;
+        overflow-y: auto;
+        padding-bottom: 20px;
+    }
+    
+    .songlist ul {
+        padding: 0 10px;
+    }
+    
+    .songlist ul li {
+        margin: 6px 0;
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+    
+    .songlist ul li img {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .songlist .info {
+        width: 140px !important;
+        font-size: 13px;
+    }
+    
+    .songlist .info div:first-child {
+        font-size: 13px;
+        line-height: 1.2;
+    }
+    
+    .songlist .info div:last-child {
+        font-size: 11px;
+        color: #888;
+        margin-top: 2px;
+    }
+    
+    .playnow {
+        flex-shrink: 0;
+    }
+    
+    .playnow span {
+        font-size: 11px !important;
+        padding: 4px 6px !important;
+        width: 45px !important;
+    }
+    
+    .playnow img {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    .footer {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        font-size: 9px;
+        flex-wrap: wrap;
+        gap: 6px;
+        line-height: 1.2;
+    }
+}
+
+/* Height-specific media queries for short screens */
+@media (max-height: 700px) {
+    .playlists {
+        height: calc(100vh - 140px) !important;
+    }
+    
+    .cardContainer {
+        max-height: calc(100vh - 180px) !important;
+    }
+    
+    .library {
+        min-height: calc(100vh - 160px) !important;
+        max-height: calc(100vh - 160px) !important;
+    }
+    
+    .songlist {
+        height: calc(100vh - 280px) !important;
+    }
+}
+
+@media (max-height: 600px) {
+    .right {
+        padding-bottom: 100px !important;
+    }
+    
+    .playlists {
+        height: calc(100vh - 120px) !important;
+    }
+    
+    .cardContainer {
+        max-height: calc(100vh - 160px) !important;
+    }
+    
+    .playbar {
+        padding: 10px 8px !important;
+        gap: 6px !important;
+    }
+    
+    .library {
+        min-height: calc(100vh - 140px) !important;
+        max-height: calc(100vh - 140px) !important;
+    }
+    
+    .songlist {
+        height: calc(100vh - 260px) !important;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .card {
+        width: 120px !important;
+        margin: 5px 4px;
+        padding: 8px 6px;
+    }
+    
+    .card img {
+        max-width: 120px;
+    }
+    
+    .card h2 {
+        font-size: 13px;
+    }
+    
+    .play {
+        top: 100px !important;
+        right: 12px !important;
+    }
+    
+    .play svg {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .left.show {
+        width: 260px !important;
+        min-width: 260px !important;
+    }
+    
+    .songlist .info {
+        width: 120px !important;
+        font-size: 12px;
+    }
+    
+    .songlist .info div:first-child {
+        font-size: 12px;
+    }
+    
+    .songlist .info div:last-child {
+        font-size: 10px;
+    }
+    
+    .playbar {
+        width: 99vw !important;
+        bottom: 3px;
+        padding: 10px 6px;
+    }
+    
+    .songinfo {
+        max-width: 140px;
+        font-size: 12px !important;
+    }
+    
+    .songbutton {
+        gap: 12px;
+    }
+    
+    .songbutton img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .timevol {
+        gap: 8px;
+    }
+    
+    .songtime {
+        font-size: 10px !important;
+    }
+    
+    .volume img {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .range input {
+        width: 60px;
+    }
+    
+    .playlists h1 {
+        font-size: 20px !important;
+    }
+    
+    .header {
+        padding: 8px 0 !important;
+        min-height: 50px;
+    }
+
+    .header .nav {
+        padding: 0 10px !important;
+    }
+
+    /* Very small screen button adjustments - FIXED */
+    .buttons {
+        padding-right: 25px !important;
+        gap: 2px !important;
+        margin-right: 0 !important;
+    }
+    
+    .loginbtn {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+        min-width: 55px !important;
+        border-radius: 16px;
+    }
+    
+    .signupbtn {
+        padding: 5px 8px !important;
+        font-size: 12px !important;
+    }
+
+    /* NoirRhythm logo adjustments for very small screens */
+    .noirhythm-logo {
+        width: 140px !important;
+        max-height: 50px !important;
+    }
+}
+
+/* Tablet range adjustments */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .cardContainer {
+        padding: 0 20px;
+        justify-content: flex-start;
+        max-height: calc(100vh - 180px) !important;
+        overflow-y: auto;
+    }
+    
+    .card {
+        width: 160px !important;
+        margin: 10px 8px;
+        padding: 15px 12px;
+    }
+    
+    .card img {
+        max-width: 160px;
+    }
+    
+    .card h2 {
+        font-size: 15px;
+    }
+    
+    .play {
+        top: 130px !important;
+        right: 18px !important;
+    }
+    
+    .left.show {
+        width: 320px !important;
+        min-width: 320px !important;
+    }
+    
+    .playbar {
+        width: 92vw !important;
+        padding: 14px 20px;
+    }
+    
+    .songlist {
+        height: calc(100vh - 300px) !important;
+    }
+    
+    .songlist .info {
+        width: 180px;
+        font-size: 15px;
+    }
+    
+    .songinfo {
+        font-size: 16px !important;
+        max-width: 250px;
+    }
+    
+    .songbutton img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .timevol {
+        gap: 12px;
+    }
+    
+    .volume img {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .range input {
+        width: 90px;
+    }
+    
+    .playlists h1 {
+        font-size: 26px !important;
+    }
+
+    .playlists {
+        height: calc(100vh - 150px) !important;
+    }
+
+    /* Tablet button adjustments - FIXED */
+    .buttons {
+        padding-right: 18px !important;
+        gap: 10px !important;
+        margin-right: 0 !important;
+    }
+
+    .signupbtn {
+        padding: 7px 12px !important;
+        font-size: 15px !important;
+    }
+
+    .loginbtn {
+        padding: 9px 15px !important;
+        font-size: 15px !important;
+        min-width: 70px !important;
+    }
+
+    .header .nav {
+        padding: 0 18px !important;
+    }
+
+    /* NoirRhythm logo adjustments for tablet */
+    .noirhythm-logo {
+        width: 185px !important;
+        max-height: 62px !important;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .left {
+        width: 25vw;
+    }
+    
+    .right {
+        width: 75vw;
+    }
+    
+    .playbar {
+        width: 72vw !important;
+    }
+    
+    .card {
+        width: 170px;
+    }
+    
+    .songlist .info {
+        width: 344px;
+    }
+
+    /* Desktop button spacing */
+    .buttons {
+        padding-right: 25px !important;
+        gap: 12px !important;
+        margin-right: 0 !important;
+    }
+
+    .signupbtn {
+        padding: 8px 12px !important;
+        font-size: 16px !important;
+    }
+
+    .loginbtn {
+        padding: 10px 16px !important;
+        font-size: 16px !important;
+        min-width: 78px !important;
+    }
+
+    /* NoirRhythm logo for desktop */
+    .noirhythm-logo {
+        width: 200px !important;
+        max-height: 65px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .left {
+        width: 20vw;
+    }
+    
+    .right {
+        width: 80vw;
+    }
+    
+    .playbar {
+        width: 77vw !important;
+    }
+
+    .buttons {
+        padding-right: 30px !important;
+    }
+
+    /* NoirRhythm logo for large desktop */
+    .noirhythm-logo {
+        width: 210px !important;
+        max-height: 68px !important;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1600px) {
+    .left {
+        width: 18vw;
+    }
+    
+    .right {
+        width: 82vw;
+    }
+    
+    .playbar {
+        width: 79vw !important;
+    }
+    
+    .cardContainer {
+        padding: 0 30px;
+    }
+    
+    .card {
+        width: 180px;
+        margin: 12px;
+        padding: 20px;
+    }
+
+    .buttons {
+        padding-right: 35px !important;
+    }
+}
