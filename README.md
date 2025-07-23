@@ -34,10 +34,4 @@ Your personal music streaming website is ready! Experience a sleek, ***Spotify-i
 - **CSS3**
 - **JavaScript (Vanilla)**
 
----
-*Enjoy your personal music player with a fancy website look!*
-Load songs from each folder
-Display them in the corresponding cards
 
-###Step 4: Launch & Enjoy**
-Your personal music streaming website is ready! Experience a sleek, Spotify-inspired interface with your own curated playlists.
