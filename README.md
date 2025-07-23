@@ -7,9 +7,8 @@
 ## 🚀 Setup Instructions
 
 ### **Step 1: Organize Your Music Files**
-1. Create a `songs` folder in your project directory
-2. Inside the `songs` folder, create individual `playlists` folders with descriptive names (e.g., "Rock Classics", "Chill Vibes", "Workout Mix")
-3. For each playlist folder, add:
+1. Inside the `songs` folder, create individual `playlists` folders with descriptive names (e.g., "Rock Classics", "Chill Vibes", "Workout Mix")
+2. For each playlist folder, add:
    - A cover image (JPG/PNG format recommended)
    - All songs belonging to that playlist
 
