@@ -78,6 +78,25 @@ const playmusic = (track, pause = false) => {
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
 
+// Function to play the next song automatically
+const playNextSong = () => {
+    let currentTrack = decodeURIComponent(currentsong.src.split("/").slice(-1)[0]);
+    let index = songs.indexOf(currentTrack);
+    
+    // Check if there's a next song in the playlist
+    if ((index + 1) < songs.length) {
+        playmusic(songs[index + 1]);
+    } else {
+        // Optional: Loop back to the first song when playlist ends
+        // Uncomment the line below if you want the playlist to loop
+        // playmusic(songs[0]);
+        
+        // Or just stop and reset play button
+        play.src = "svg/play.svg";
+        console.log("Playlist ended");
+    }
+}
+
 function openMobileMenu() {
     const leftPanel = document.querySelector(".left");
     leftPanel.classList.add("show");
@@ -114,6 +133,12 @@ async function main(){
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentsong.currentTime)} / ${secondsToMinutesSeconds(currentsong.duration)}`
         document.querySelector(".circle").style.left = (currentsong.currentTime/currentsong.duration)*100 + "%"
     })
+    
+    // AUTO-PLAY FEATURE: Event listener for when song ends
+    currentsong.addEventListener("ended", () => {
+        console.log("Song ended, playing next song...");
+        playNextSong();
+    });
     
     // Event listener for seekbar
     document.querySelector(".seekbar").addEventListener("click", e => {
