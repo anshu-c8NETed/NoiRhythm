@@ -4,6 +4,13 @@
           
   *Inspired by Spotify and YouTube Music*
 
+> **Note:** Update the API endpoint in your JavaScript code to match your local server:
+> ```javascript
+> let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
+> ```
+> Replace `127.0.0.1:5500` with your actual server address and port.
+
+
 ## 🚀 Setup Instructions
 
 ### **Step 1: Organize Your Music Files**
