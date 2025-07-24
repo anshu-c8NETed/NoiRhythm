@@ -97,96 +97,16 @@ const playNextSong = () => {
     }
 }
 
-// Enhanced mobile menu functions
 function openMobileMenu() {
     const leftPanel = document.querySelector(".left");
     leftPanel.classList.add("show");
-    document.body.style.overflow = 'hidden';
-    
-    // Add a small delay to ensure the animation works on mobile
-    setTimeout(() => {
-        leftPanel.style.transform = 'translateX(0)';
-    }, 10);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
 
 function closeMobileMenu() {
     const leftPanel = document.querySelector(".left");
     leftPanel.classList.remove("show");
-    document.body.style.overflow = 'auto';
-    leftPanel.style.transform = '';
-}
-
-function setupMobileMenu() {
-    const hamburger = document.querySelector(".hamburger");
-    const closeBtn = document.querySelector(".close");
-    const leftPanel = document.querySelector(".left");
-    
-    // Simple click events that work well on mobile
-    hamburger.addEventListener("click", (e) => {
-        e.stopPropagation();
-        
-        if (leftPanel.classList.contains("show")) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
-        }
-    });
-    
-    // Close button
-    closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        closeMobileMenu();
-    });
-    
-    // Click outside to close
-    document.addEventListener("click", (e) => {
-        if (window.innerWidth <= 1199 && 
-            leftPanel.classList.contains("show") && 
-            !leftPanel.contains(e.target) && 
-            !hamburger.contains(e.target)) {
-            closeMobileMenu();
-        }
-    });
-    
-    // Prevent menu from closing when clicking inside
-    leftPanel.addEventListener("click", (e) => {
-        e.stopPropagation();
-    });
-}
-
-    // Hamburger menu toggle with touch support [[2](https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0)]
-    addMobileListeners(hamburger, (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        if (leftPanel.classList.contains("show")) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
-        }
-    });
-    
-    // Close button with touch support
-    addMobileListeners(closeBtn, (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        closeMobileMenu();
-    });
-    
-    // Enhanced click outside to close (mobile-friendly)
-    document.addEventListener("touchstart", (e) => {
-        if (window.innerWidth <= 1199 && 
-            leftPanel.classList.contains("show") && 
-            !leftPanel.contains(e.target) && 
-            !hamburger.contains(e.target)) {
-            closeMobileMenu();
-        }
-    }, { passive: true });
-    
-    // Prevent menu from closing when touching inside
-    leftPanel.addEventListener("touchstart", (e) => {
-        e.stopPropagation();
-    }, { passive: true });
+    document.body.style.overflow = 'auto'; // Restore background scrolling
 }
 
 async function main(){
@@ -194,9 +114,6 @@ async function main(){
     await getsongs("songs/hindi")
     playmusic(songs[0], true)
     console.log("First song loaded:", songs[0])
-
-    // Setup mobile menu functionality [[4](https://www.geeksforgeeks.org/html/how-to-create-hamburger-menu-for-mobile-devices/)]
-    setupMobileMenu();
 
     // Attach eventlistener to play/pause
     play.addEventListener("click",()=>{
@@ -230,7 +147,25 @@ async function main(){
         currentsong.currentTime = ((currentsong.duration) * percent) / 100
     })
     
-    // Legacy click outside to close for desktop
+    // Event listener for hamburger menu - TOGGLE functionality
+    document.querySelector(".hamburger").addEventListener("click", (e) => {
+        e.stopPropagation();
+        const leftPanel = document.querySelector(".left");
+        
+        if (leftPanel.classList.contains("show")) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    })
+    
+    // Event listener for close button
+    document.querySelector(".close").addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeMobileMenu();
+    })
+    
+    // Close mobile menu when clicking on the overlay/background
     document.addEventListener("click", (e) => {
         const leftPanel = document.querySelector(".left");
         const hamburger = document.querySelector(".hamburger");
