@@ -8,7 +8,7 @@
 > ```javascript
 > let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
 > ```
-> Replace `127.0.0.1:5500` with your actual server address and port.
+> Replace `127.0.0.1:5500` with your actual server address and port in all places in the code respectively.
 
 
 ## 🚀 Setup Instructions
