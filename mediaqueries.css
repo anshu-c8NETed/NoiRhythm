@@ -819,7 +819,54 @@
         margin: 12px;
         padding: 20px;
     }
+}
 
+@media (max-width: 1199px) {
+    .hamburger {
+        display: block !important;
+        width: 44px; /* Minimum touch target size */
+        height: 44px;
+        padding: 10px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent; /* Remove blue highlight on tap */
+        touch-action: manipulation; /* Improve touch responsiveness */
+    }
+    
+    .close {
+        display: block !important;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    
+    /* Ensure the left panel has proper touch handling */
+    .left {
+        touch-action: pan-y; /* Allow vertical scrolling within menu */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+    
+    /* Prevent zoom on double tap for buttons */
+    .signupbtn, .loginbtn, .card, .play {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Make sure cards are properly sized for touch */
+    .card {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+    
+    /* Improve song list item touch targets */
+    .songlist ul li {
+        min-height: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
     .buttons {
         padding-right: 35px !important;
     }
