@@ -387,8 +387,12 @@ display: flex;
     padding: 1px;
 }
 
-.hamburger{
-    display: none;
+.hamburger, .close {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
 }
 .close{
     display: none;
