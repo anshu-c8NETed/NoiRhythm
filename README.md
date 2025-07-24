@@ -1,6 +1,6 @@
 # 🎵 NoiRhythm
 
-**A personalized interactive and completely responsive music streaming web application that delivers a sleek a sleek and intuitive user interface designed to enhance your listening experience with clean and minimalist design.** 
+**A personalized interactive and completely responsive music streaming web application that delivers a sleek and intuitive user interface designed to enhance your listening experience with clean and minimalist design.** 
           
   *Inspired by Spotify and YouTube Music*
 
