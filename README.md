@@ -14,10 +14,12 @@
 ## 🚀 Setup Instructions
 
 ### **Step 1: Organize Your Music Files**
-1. Inside the `songs` folder, create individual `playlists` folders with descriptive names (e.g., "Rock Classics", "Chill Vibes", "Workout Mix")
-2. For each playlist folder, add:
-   - A cover image (JPG/PNG format recommended)
+1. Inside the `songs` folder, create or replace individual `playlists` folders with descriptive names (e.g., "Rock Classics", "Chill Vibes", "Workout Mix")
+2. Inside the `img` folder, create or replace individual images `.jpg` 
+3. For each playlist folder, add:
    - All songs belonging to that playlist
+4. For each images folder, add:
+   - All images with their specific names 
 
 ### **Step 2: Update HTML Cards**
 1. Open your HTML file and locate the `<div class="card-container">` section
