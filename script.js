@@ -116,18 +116,44 @@ function closeMobileMenu() {
     leftPanel.style.transform = '';
 }
 
-// Enhanced hamburger menu functionality for mobile
 function setupMobileMenu() {
     const hamburger = document.querySelector(".hamburger");
     const closeBtn = document.querySelector(".close");
     const leftPanel = document.querySelector(".left");
     
-    // Add both click and touchstart events for better mobile support [[1](https://www.w3schools.com/howto/howto_js_mobile_navbar.asp)]
-    function addMobileListeners(element, handler) {
-        element.addEventListener("click", handler);
-        element.addEventListener("touchstart", handler, { passive: true });
-    }
+    // Simple click events that work well on mobile
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        
+        if (leftPanel.classList.contains("show")) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
     
+    // Close button
+    closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeMobileMenu();
+    });
+    
+    // Click outside to close
+    document.addEventListener("click", (e) => {
+        if (window.innerWidth <= 1199 && 
+            leftPanel.classList.contains("show") && 
+            !leftPanel.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Prevent menu from closing when clicking inside
+    leftPanel.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+}
+
     // Hamburger menu toggle with touch support [[2](https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0)]
     addMobileListeners(hamburger, (e) => {
         e.preventDefault();
