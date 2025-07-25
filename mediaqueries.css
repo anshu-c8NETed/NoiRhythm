@@ -1,4 +1,3 @@
-
 @media (max-width: 768px) {
     /* Main container height management */
     .right {
@@ -7,7 +6,6 @@
         overflow-y: auto;
         background: #111;
     }
-
     /* Playlists container height fix */
     .playlists {
         height: calc(100vh - 160px) !important;
@@ -16,7 +14,6 @@
         background: #1a1a1a;
         border-radius: 8px;
     }
-
     .cardContainer .card{
         width: auto;
     }
@@ -31,7 +28,6 @@
         padding-bottom: 30px;
         gap: 8px;
     }
-    
     .card {
         width: 140px !important;
         margin: 8px 6px;
@@ -41,20 +37,17 @@
         border-radius: 8px;
         transition: all 0.3s ease;
     }
-    
     .card:hover {
         background: rgba(29, 185, 84, 0.1);
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(29, 185, 84, 0.3);
     }
-    
     .card img {
         width: 100% !important;
         height: auto;
         max-width: 140px;
         border-radius: 6px;
     }
-    
     .card h2 {
         font-size: 14px;
         margin-top: 8px;
@@ -63,11 +56,9 @@
         color: #fff;
         transition: color 0.3s ease;
     }
-    
     .card:hover h2 {
         color: #1db954;
     }
-    
     /* Play button positioning for mobile cards */
     .play {
         top: 115px !important;
@@ -76,13 +67,11 @@
         border-radius: 50%;
         padding: 4px;
     }
-    
     .play svg {
         width: 40px !important;
         height: 40px !important;
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
-    
     /* Playlist heading */
     .playlists h1 {
         font-size: 22px !important;
@@ -92,7 +81,6 @@
         color: #fff;
         font-weight: 600;
     }
-    
     /* Mobile playbar adjustments */
     .playbar {
         width: 98vw !important;
@@ -108,7 +96,6 @@
         border: 1px solid rgba(29, 185, 84, 0.3);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
-    
     .flexbar {
         flex-direction: column;
         gap: 8px;
@@ -116,7 +103,6 @@
         padding: 0;
         align-items: center;
     }
-    
     .seekbar {
         order: -1;
         width: 100%;
@@ -126,16 +112,13 @@
         background: rgba(255, 255, 255, 0.2);
         border-radius: 2px;
     }
-    
     .seekbar:hover {
         height: 6px;
     }
-    
     .circle {
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         box-shadow: 0 2px 8px rgba(29, 185, 84, 0.6);
     }
-    
     .songbutton {
         order: 1;
         display: flex;
@@ -147,19 +130,16 @@
         border-radius: 20px;
         border: 1px solid rgba(29, 185, 84, 0.3);
     }
-    
     .songbutton img {
         width: 30px !important;
         height: 30px !important;
         filter: brightness(1.2);
         transition: all 0.3s ease;
     }
-    
     .songbutton img:hover {
         transform: scale(1.2);
         filter: brightness(1.5);
     }
-    
     .songinfo {
         order: 2;
         text-align: center;
@@ -176,7 +156,6 @@
         font-weight: 500;
         border: 1px solid rgba(29, 185, 84, 0.2);
     }
-    
     .timevol {
         order: 3;
         justify-content: center;
@@ -188,38 +167,32 @@
         border-radius: 15px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
     .songtime {
         font-size: 11px !important;
         margin: 0 !important;
         color: #fff !important;
         font-weight: 500;
     }
-    
     .volume {
         display: flex;
         align-items: center;
         gap: 6px;
     }
-    
     .volume img {
         width: 20px;
         height: 20px;
         filter: brightness(1.2);
     }
-    
     .range input {
         width: 70px;
         height: 4px;
         background: rgba(255, 255, 255, 0.3);
         border-radius: 2px;
     }
-    
     .range input::-webkit-slider-thumb {
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         box-shadow: 0 2px 6px rgba(29, 185, 84, 0.6);
     }
-    
     /* Header adjustments for mobile */
     .header {
         padding: 12px 0 !important;
@@ -235,30 +208,25 @@
         background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
         border-bottom: 1px solid rgba(29, 185, 84, 0.2);
     }
-    
     .header .nav {
         flex-grow: 0;
         padding: 0 12px !important;
         flex-shrink: 0;
     }
-    
     .header .nav .flex {
         gap: 8px !important;
         margin-top: 5px !important;
     }
-    
     .header .nav svg {
         width: 20px !important;
         height: 20px !important;
         stroke: #1db954;
         transition: all 0.3s ease;
     }
-    
     .header .nav svg:hover {
         stroke: #1ed760;
         transform: scale(1.1);
     }
-
     /* Mobile button styling */
     .buttons {
         padding-right: 16px !important;
@@ -269,7 +237,6 @@
         align-items: center;
         min-width: fit-content;
     }
-    
     .loginbtn {
         padding: 6px 12px !important;
         font-size: 13px !important;
@@ -280,7 +247,6 @@
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
     }
-    
     .signupbtn {
         padding: 6px 10px !important;
         font-size: 13px !important;
@@ -289,12 +255,10 @@
         background: rgba(29, 185, 84, 0.1);
         color: #1db954;
     }
-    
     .signupbtn:hover {
         background: rgba(29, 185, 84, 0.2);
         color: #1ed760;
     }
-    
     /* Sidebar content adjustments */
     .left.show {
         width: 280px !important;
@@ -304,13 +268,11 @@
         backdrop-filter: blur(15px);
         border-right: 2px solid #1db954;
     }
-    
     .home {
         background: rgba(29, 185, 84, 0.1);
         border: 1px solid rgba(29, 185, 84, 0.2);
         border-radius: 10px;
     }
-    
     .home ul li {
         gap: 12px !important;
         padding: 10px 8px;
@@ -318,23 +280,19 @@
         border-radius: 6px;
         transition: all 0.3s ease;
     }
-    
     .home ul li:hover {
         background: rgba(29, 185, 84, 0.2);
         transform: translateX(5px);
     }
-    
     .home ul li img {
         width: 22px;
         height: 22px;
     }
-
     /* NoirRhythm logo adjustments for mobile */
     .noirhythm-logo {
         width: 160px !important;
         max-height: 55px !important;
     }
-    
     .library {
         min-height: calc(100vh - 180px) !important;
         max-height: calc(100vh - 180px) !important;
@@ -343,7 +301,6 @@
         border: 1px solid rgba(29, 185, 84, 0.2);
         border-radius: 10px;
     }
-    
     .library .heading {
         font-size: 14px;
         gap: 8px !important;
@@ -355,19 +312,16 @@
         border-radius: 8px;
         margin-bottom: 10px;
     }
-    
     .library .heading img {
         width: 22px;
         height: 22px;
     }
-    
     .library .heading h2 {
         font-size: 16px !important;
         margin-top: -2px !important;
         color: #1db954;
         font-weight: 600;
     }
-    
     .songlist {
         height: calc(100vh - 320px) !important;
         margin: 10px 0;
@@ -376,20 +330,16 @@
         scrollbar-width: thin;
         scrollbar-color: #1db954 #333;
     }
-    
     .songlist::-webkit-scrollbar {
         width: 4px;
     }
-    
     .songlist::-webkit-scrollbar-thumb {
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         border-radius: 2px;
     }
-    
     .songlist ul {
         padding: 0 10px;
     }
-    
     .songlist ul li {
         margin: 8px 0;
         padding: 10px 8px;
@@ -399,36 +349,30 @@
         border-radius: 8px;
         transition: all 0.3s ease;
     }
-    
     .songlist ul li:hover {
         background: rgba(29, 185, 84, 0.15);
         border-color: #1db954;
         transform: translateX(3px);
         box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
     }
-    
     .songlist ul li img {
         width: 18px;
         height: 18px;
         filter: brightness(1.2);
     }
-    
     .songlist .info {
         width: 140px !important;
         font-size: 13px;
         color: #fff;
     }
-    
     .songlist .info div:first-child {
         font-size: 13px;
         line-height: 1.2;
         font-weight: 500;
     }
-    
     .playnow {
         flex-shrink: 0;
     }
-    
     .playnow span {
         font-size: 11px !important;
         padding: 6px 8px !important;
@@ -436,29 +380,24 @@
         color: #1db954;
         font-weight: 500;
     }
-    
     .playnow img {
         width: 22px !important;
         height: 22px !important;
         filter: brightness(1.2);
     }
-
     /* Matrix intro mobile adjustments */
     .matrix-text {
         font-size: 2.5rem !important;
         letter-spacing: 0.1em;
     }
-    
     .matrix-subtitle {
         font-size: 1rem !important;
         letter-spacing: 0.2em;
     }
-    
     .matrix-container {
         padding: 0 20px;
     }
 }
-
 @media (max-height: 700px) {
     .cardContainer .card{
         width: auto;
@@ -466,29 +405,23 @@
     .playlists {
         height: calc(100vh - 140px) !important;
     }
-    
     .cardContainer {
         max-height: calc(100vh - 180px) !important;
     }
-    
     .library {
         min-height: calc(100vh - 160px) !important;
         max-height: calc(100vh - 160px) !important;
     }
-    
     .songlist {
         height: calc(100vh - 280px) !important;
     }
-    
     .matrix-text {
         font-size: 2.5rem !important;
     }
-    
     .matrix-subtitle {
         font-size: 1rem !important;
     }
 }
-
 @media (max-height: 600px) {
     .cardContainer .card{
         width: auto;
@@ -496,39 +429,31 @@
     .right {
         padding-bottom: 100px !important;
     }
-    
     .playlists {
         height: calc(100vh - 120px) !important;
     }
-    
     .cardContainer {
         max-height: calc(100vh - 160px) !important;
     }
-    
     .playbar {
         padding: 10px 8px !important;
         gap: 6px !important;
     }
-    
     .library {
         min-height: calc(100vh - 140px) !important;
         max-height: calc(100vh - 140px) !important;
     }
-    
     .songlist {
         height: calc(100vh - 260px) !important;
     }
-    
     .matrix-text {
         font-size: 2.2rem !important;
         margin-bottom: 0.5rem;
     }
-    
     .matrix-subtitle {
         font-size: 0.9rem !important;
     }
 }
-
 @media (max-height: 500px) {
     .cardContainer .card{
         width: auto;
@@ -537,13 +462,10 @@
         font-size: 2.2rem !important;
         margin-bottom: 0.3rem;
     }
-    
     .matrix-subtitle {
         font-size: 0.9rem !important;
     }
 }
-
-
 @media (max-width: 480px) {
     .cardContainer .card{
         width: auto;
@@ -553,128 +475,102 @@
         margin: 5px 4px;
         padding: 8px 6px;
     }
-    
     .card img {
         max-width: 120px;
     }
-    
     .card h2 {
         font-size: 13px;
     }
-    
     .play {
         top: 100px !important;
         right: 12px !important;
     }
-    
     .play svg {
         width: 35px !important;
         height: 35px !important;
     }
-    
     .left.show {
         width: 260px !important;
         min-width: 260px !important;
     }
-    
     .songlist .info {
         width: 120px !important;
         font-size: 12px;
     }
-    
     .songinfo {
         max-width: 140px;
         font-size: 12px !important;
     }
-    
     .songbutton {
         gap: 12px;
     }
-    
     .songbutton img {
         width: 28px !important;
         height: 28px !important;
     }
-    
     .timevol {
         gap: 8px;
     }
-    
     .songtime {
         font-size: 10px !important;
     }
-    
     .volume img {
         width: 18px;
         height: 18px;
     }
-    
     .range input {
         width: 60px;
     }
-    
     .playlists h1 {
         font-size: 20px !important;
     }
-    
     .header {
         padding: 8px 0 !important;
         min-height: 50px;
     }
-
     .header .nav {
         padding: 0 10px !important;
     }
-
     .header .nav svg {
         width: 18px !important;
         height: 18px !important;
     }
-
     .buttons {
         padding-right: 12px !important;
         gap: 4px !important;
     }
-    
     .loginbtn {
         padding: 5px 10px !important;
         font-size: 12px !important;
         min-width: 55px !important;
         border-radius: 16px;
     }
-    
     .signupbtn {
         padding: 5px 8px !important;
         font-size: 12px !important;
     }
-
     .noirhythm-logo {
         width: 140px !important;
         max-height: 50px !important;
     }
-    
     .playbar {
         width: 99vw !important;
         bottom: 3px;
         padding: 8px 6px;
         border-radius: 10px;
     }
-
     .matrix-text {
         font-size: 2rem !important;
         letter-spacing: 0.05em;
     }
-    
     .matrix-subtitle {
         font-size: 0.9rem !important;
         letter-spacing: 0.15em;
     }
-    
     .matrix-container {
         padding: 0 15px;
     }
 }
-
 @media (min-width: 769px) and (max-width: 1199px) {
     .cardContainer .card{
         width: auto;
@@ -686,7 +582,6 @@
         overflow-y: auto;
         gap: 12px;
     }
-    
     .card {
         width: 160px !important;
         margin: 10px 8px;
@@ -694,117 +589,96 @@
         background: rgba(29, 185, 84, 0.08);
         border: 1px solid rgba(29, 185, 84, 0.25);
     }
-    
     .card:hover {
         background: rgba(29, 185, 84, 0.15);
         transform: translateY(-3px);
         box-shadow: 0 10px 25px rgba(29, 185, 84, 0.25);
     }
-    
     .card img {
         max-width: 160px;
     }
-    
     .card h2 {
         font-size: 15px;
     }
-    
     .play {
         top: 130px !important;
         right: 18px !important;
     }
-    
     .left.show {
         width: 320px !important;
         min-width: 320px !important;
     }
-    
+    /* ====== FIXED PLAYBAR FOR 769px-1199px ====== */
     .playbar {
         width: 92vw !important;
         padding: 14px 20px;
+        /* This dark background is good, keeping it */
         background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
         border: 1px solid rgba(29, 185, 84, 0.3);
     }
-    
     .songlist {
         height: calc(100vh - 300px) !important;
     }
-    
     .songlist .info {
         width: 180px;
         font-size: 15px;
     }
-    
     .songinfo {
         font-size: 16px !important;
         max-width: 250px;
         color: #fff !important;
     }
-    
     .songbutton img {
         width: 32px !important;
         height: 32px !important;
     }
-    
     .timevol {
         gap: 12px;
     }
-    
     .volume img {
         width: 22px;
         height: 22px;
     }
-    
     .range input {
         width: 90px;
     }
-    
     .playlists h1 {
         font-size: 26px !important;
         color: #fff;
     }
-
     .playlists {
         height: calc(100vh - 150px) !important;
         background: #1a1a1a;
     }
-
     .buttons {
         padding-right: 18px !important;
         gap: 10px !important;
     }
-
     .signupbtn {
         padding: 7px 12px !important;
         font-size: 15px !important;
     }
-
     .loginbtn {
         padding: 9px 15px !important;
         font-size: 15px !important;
         min-width: 70px !important;
     }
-
     .header .nav {
         padding: 0 18px !important;
     }
-
     .noirhythm-logo {
         width: 175px !important;
         max-height: 60px !important;
     }
-    
     .library {
         background: rgba(29, 185, 84, 0.08);
         border: 1px solid rgba(29, 185, 84, 0.25);
     }
-    
     .home {
         background: rgba(29, 185, 84, 0.12);
         border: 1px solid rgba(29, 185, 84, 0.3);
     }
 }
-
 @media (min-width: 1200px) {
     .cardContainer .card{
         width: auto;
@@ -812,56 +686,48 @@
     .left {
         width: 25vw;
     }
-    
     .right {
         width: 75vw;
     }
-    
+    /* ====== FIXED PLAYBAR FOR 1200px+ ====== */
     .playbar {
         width: 72vw !important;
-        background: linear-gradient(135deg, rgba(232, 227, 227, 0.95) 0%, rgba(247, 187, 187, 0.95) 100%);
+        /* CHANGED: Ensuring dark theme is maintained */
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
     .card {
         width: 170px;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
     .card:hover {
         background: rgba(255, 255, 255, 0.1);
         transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
-    
     .songlist .info {
         width: 344px;
     }
-
     .buttons {
         padding-right: 25px !important;
         gap: 12px !important;
     }
-
     .signupbtn {
         padding: 8px 12px !important;
         font-size: 16px !important;
     }
-
     .loginbtn {
         padding: 10px 16px !important;
         font-size: 16px !important;
         min-width: 78px !important;
     }
-
     .noirhythm-logo {
         width: 190px !important;
         max-height: 62px !important;
     }
 }
-
 @media (min-width: 1400px) {
     .cardContainer .card{
         width: auto;
@@ -869,25 +735,20 @@
     .left {
         width: 20vw;
     }
-    
     .right {
         width: 80vw;
     }
-    
     .playbar {
         width: 77vw !important;
     }
-
     .buttons {
         padding-right: 30px !important;
     }
-
     .noirhythm-logo {
         width: 200px !important;
         max-height: 65px !important;
     }
 }
-
 @media (min-width: 1600px) {
     .cardContainer .card{
         width: auto;
@@ -895,30 +756,24 @@
     .left {
         width: 18vw;
     }
-    
     .right {
         width: 82vw;
     }
-    
     .playbar {
         width: 79vw !important;
     }
-    
     .cardContainer {
         padding: 0 30px;
         gap: 15px;
     }
-    
     .card {
         width: 180px;
         margin: 12px;
         padding: 20px;
     }
-
     .buttons {
         padding-right: 35px !important;
     }
-    
     .noirhythm-logo {
         width: 210px !important;
         max-height: 68px !important;
@@ -929,24 +784,19 @@
         font-size: 2rem !important;
         margin-bottom: 0.3rem;
     }
-    
     .matrix-subtitle {
         font-size: 0.8rem !important;
     }
-    
     .playbar {
         bottom: 3px !important;
         padding: 8px !important;
     }
-    
     .right {
         padding-bottom: 80px !important;
     }
-    
     .playlists {
         height: calc(100vh - 100px) !important;
     }
-    
     .cardContainer {
         max-height: calc(100vh - 140px) !important;
     }
@@ -955,18 +805,15 @@
     .matrix-text {
         text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
     }
-    
     .card img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
-    
     .noirhythm-logo {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
 }
-
 @media (prefers-reduced-motion: reduce) {
     .matrix-intro,
     .card,
@@ -978,52 +825,43 @@
         transition: none !important;
         animation: none !important;
     }
-    
     .matrix-text,
     .matrix-subtitle {
         animation: none !important;
     }
 }
-
 @media (prefers-color-scheme: light) {
     .matrix-intro {
         background: #f0f0f0;
     }
-    
     .matrix-text,
     .matrix-subtitle {
         color: #333;
         text-shadow: 0 0 10px #333;
     }
-    
     #matrix-canvas {
         filter: invert(1);
     }
 }
-
 .container {
     display: flex;
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
 }
-
 /* Desktop styles (default) */
 .left {
     width: 25vw;
     flex-shrink: 0;
     transition: all 0.3s ease;
 }
-
 .right {
     width: 75vw;
     flex-grow: 1;
 }
-
 .hamburger, .close {
     display: none;
 }
-
 @media (max-width: 1199px) {
     .cardContainer .card{
         width: auto;
@@ -1033,7 +871,6 @@
         cursor: pointer;
         z-index: 1003;
     }
-    
     .close {
         display: block !important;
         position: absolute;
@@ -1047,7 +884,6 @@
         border-radius: 50%;
         padding: 4px;
     }
-    
     /* Hide left sidebar by default */
     .left {
         width: 0 !important;
@@ -1063,7 +899,6 @@
         backdrop-filter: blur(10px);
         border-right: 1px solid rgba(29, 185, 84, 0.3);
     }
-    
     /* Show left sidebar when active */
     .left.show {
         left: 0;
@@ -1071,7 +906,6 @@
         min-width: 300px !important;
         box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
     }
-    
     /* Right takes full width when left is hidden */
     .right {
         width: 100vw !important;
@@ -1080,7 +914,6 @@
         padding-bottom: 100px;
         background: #111;
     }
-    
     /* Adjust playbar for full width */
     .playbar {
         width: 95vw !important;
@@ -1088,21 +921,20 @@
         transform: translateX(-50%);
         z-index: 999;
         max-width: none;
+        /* Ensuring dark theme is maintained */
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
     }
-
     /* Main content area adjustments */
     .playlists {
         height: calc(100vh - 140px) !important;
         overflow-y: auto;
         padding-bottom: 20px;
     }
-
     .cardContainer {
         max-height: calc(100vh - 200px) !important;
         padding-bottom: 20px;
         overflow-y: auto;
     }
-
     /* Button adjustments for tablet and below */
     .buttons {
         padding-right: 20px !important;
@@ -1112,13 +944,11 @@
         justify-content: flex-end;
         align-items: center;
     }
-
     .signupbtn {
         padding: 6px 10px !important;
         font-size: 14px !important;
         font-weight: 600;
     }
-
     .loginbtn {
         padding: 8px 14px !important;
         font-size: 14px !important;
@@ -1126,58 +956,46 @@
         min-width: 65px !important;
         white-space: nowrap;
     }
-
     .header {
         padding: 20px 0 !important;
         width: 100%;
         overflow: visible;
         background: linear-gradient(135deg, #000 0%, #111 100%);
     }
-
     /* NoirRhythm logo adjustments for tablet */
     .noirhythm-logo {
         width: 170px !important;
         max-height: 58px !important;
     }
-
     /* Sidebar content adjustments */
     .library {
         min-height: calc(100vh - 160px) !important;
         max-height: calc(100vh - 160px) !important;
         overflow-y: auto;
     }
-
     .songlist {
         height: calc(100vh - 280px) !important;
         overflow-y: auto;
     }
-
     /* Enhanced hover effects for tablet */
     .card {
         transition: all 0.3s ease;
     }
-    
     .card:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
     }
 }
-
-
 @media (prefers-color-scheme: dark) {
     .matrix-intro {
         background: #000;
     }
-    
     .matrix-text,
     .matrix-subtitle {
         color: #00ff00;
         text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
     }
 }
-
-
-
 @media print {
     .matrix-intro,
     .playbar,
@@ -1185,13 +1003,11 @@
     .close {
         display: none !important;
     }
-    
     .container {
         display: block;
         width: 100%;
         height: auto;
     }
-    
     .left, .right {
         width: 100%;
         margin: 0;
@@ -1199,7 +1015,6 @@
         background: white !important;
         color: black !important;
     }
-    
     .card {
         break-inside: avoid;
         margin-bottom: 20px;
@@ -1207,44 +1022,36 @@
         background: white !important;
     }
 }
-
 @media (hover: hover) {
     .card:hover .play {
         opacity: 1;
         transform: translateY(0);
     }
-    
     .songbutton img:hover {
         transform: scale(1.1);
         filter: brightness(1.2);
     }
 }
-
 @media (hover: none) {
     .play {
         opacity: 1;
         transform: translateY(0);
     }
-    
     .card:active {
         transform: scale(0.98);
     }
 }
-
 @media (prefers-reduced-motion: no-preference) {
     .card {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
     .songbutton img {
         transition: all 0.2s ease-in-out;
     }
-    
     .play {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
-
 /* Focus indicators */
 .card:focus-visible,
 .songbutton img:focus-visible,
