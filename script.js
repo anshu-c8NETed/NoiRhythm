@@ -18,7 +18,9 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getsongs(folder){
     currfolder = folder
-    let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
+    
+    // Use relative path instead of localhost
+    let a = await fetch(`./${folder}/`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response
@@ -64,8 +66,8 @@ const playmusic = (track, pause = false) => {
     // Ensure it has .mp3
     const rawTrack = track.trim().endsWith(".mp3") ? track.trim() : `${track.trim()}.mp3`;
 
-    // Set the correct audio source
-    currentsong.src = `/${currfolder}/` + encodeURIComponent(rawTrack);
+    // Use relative path for audio source
+    currentsong.src = `./${currfolder}/` + encodeURIComponent(rawTrack);
 
     if (!pause) {
         currentsong.play();
@@ -111,9 +113,15 @@ function closeMobileMenu() {
 
 async function main(){
     // Get list of all songs
-    await getsongs("songs/hindi")
-    playmusic(songs[0], true)
-    console.log("First song loaded:", songs[0])
+    try {
+        await getsongs("songs/hindi")
+        playmusic(songs[0], true)
+        console.log("First song loaded:", songs[0])
+    } catch (error) {
+        console.error("Error loading songs:", error)
+        // Fallback: Set up empty songs array and continue with other functionality
+        songs = []
+    }
 
     // Attach eventlistener to play/pause
     play.addEventListener("click",()=>{
@@ -151,6 +159,8 @@ async function main(){
     document.querySelector(".hamburger").addEventListener("click", (e) => {
         e.stopPropagation();
         const leftPanel = document.querySelector(".left");
+        
+        console.log("Hamburger clicked"); // Debug log
         
         if (leftPanel.classList.contains("show")) {
             closeMobileMenu();
@@ -215,12 +225,16 @@ async function main(){
     // Load playlist whenever card is clicked
     Array.from(document.getElementsByClassName("card")).forEach(e=>{
         e.addEventListener("click",async item=>{
-            songs = await getsongs(`songs/${item.currentTarget.dataset.folder}`)
-            playmusic(songs[0])
-            
-            // Close mobile menu after selecting playlist
-            if (window.innerWidth <= 1199) {
-                closeMobileMenu();
+            try {
+                songs = await getsongs(`songs/${item.currentTarget.dataset.folder}`)
+                playmusic(songs[0])
+                
+                // Close mobile menu after selecting playlist
+                if (window.innerWidth <= 1199) {
+                    closeMobileMenu();
+                }
+            } catch (error) {
+                console.error("Error loading playlist:", error)
             }
         })
     })
