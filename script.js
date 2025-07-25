@@ -1,3 +1,124 @@
+// Matrix Intro Variables
+let matrixCanvas, matrixCtx;
+let matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+let matrixColumns = [];
+let matrixDrops = [];
+
+// Initialize Matrix Effect
+function initMatrix() {
+    matrixCanvas = document.getElementById('matrix-canvas');
+    matrixCtx = matrixCanvas.getContext('2d');
+    
+    // Set canvas size
+    matrixCanvas.width = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+    
+    const fontSize = 14;
+    const columns = matrixCanvas.width / fontSize;
+    
+    // Initialize drops array
+    for (let i = 0; i < columns; i++) {
+        matrixDrops[i] = Math.floor(Math.random() * matrixCanvas.height / fontSize);
+    }
+    
+    drawMatrix();
+}
+
+function drawMatrix() {
+    // Black background with fade effect
+    matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+    matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+    
+    matrixCtx.fillStyle = '#00ff00';
+    matrixCtx.font = '14px monospace';
+    
+    for (let i = 0; i < matrixDrops.length; i++) {
+        const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        matrixCtx.fillText(text, i * 14, matrixDrops[i] * 14);
+        
+        if (matrixDrops[i] * 14 > matrixCanvas.height && Math.random() > 0.975) {
+            matrixDrops[i] = 0;
+        }
+        matrixDrops[i]++;
+    }
+}
+
+// Matrix Text Animation
+function animateMatrixText() {
+    const matrixText = document.getElementById('matrix-text');
+    const originalText = 'NOIRHYTHM';
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+    let iterations = 0;
+    
+    const interval = setInterval(() => {
+        matrixText.innerHTML = originalText
+            .split('')
+            .map((letter, index) => {
+                if (index < iterations) {
+                    return originalText[index];
+                }
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+        
+        if (iterations >= originalText.length) {
+            clearInterval(interval);
+        }
+        
+        iterations += 1 / 3;
+    }, 30);
+}
+
+// Start Matrix Intro
+function startMatrixIntro() {
+    initMatrix();
+    
+    // Start matrix rain animation
+    const matrixInterval = setInterval(() => {
+        drawMatrix();
+    }, 33);
+    
+    // Start text animation after a short delay
+    setTimeout(() => {
+        animateMatrixText();
+    }, 500);
+    
+    // Transition to main app after 3 seconds
+    setTimeout(() => {
+        const matrixIntro = document.getElementById('matrix-intro');
+        const mainApp = document.getElementById('main-app');
+        
+        // Fade out intro
+        matrixIntro.classList.add('fade-out');
+        
+        // Clear matrix animation
+        clearInterval(matrixInterval);
+        
+        // Show main app after fade out
+        setTimeout(() => {
+            matrixIntro.style.display = 'none';
+            mainApp.style.display = 'flex';
+            
+            // Trigger smooth entrance animation
+            setTimeout(() => {
+                mainApp.classList.add('show');
+            }, 50);
+            
+            // Initialize main app
+            main();
+        }, 800);
+    }, 3000);
+}
+
+// Resize handler for matrix canvas
+window.addEventListener('resize', () => {
+    if (matrixCanvas) {
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+    }
+});
+
+// Original Music Player Code
 let currentsong = new Audio()
 let songs;
 let currfolder;
@@ -268,4 +389,7 @@ async function main(){
     });
 }
 
-main()
+// Start the matrix intro when page loads
+window.addEventListener('load', () => {
+    startMatrixIntro();
+});
