@@ -7,12 +7,21 @@
     <link rel="icon" type="image/svg+xml" href="favico.svg">
     <link rel="icon" type="image/png" href="favico.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
     <link rel="stylesheet" href="mediaqueries.css">
     <title>NoiRhythm</title>
 </head>
 <body>
-    <div class="container bg-black flex">
+    <!-- Matrix Intro Screen -->
+    <div id="matrix-intro" class="matrix-intro">
+        <div class="matrix-container">
+            <div class="matrix-text" id="matrix-text">NOIRHYTHM</div>
+            <div class="matrix-subtitle">LOADING...</div>
+        </div>
+        <canvas id="matrix-canvas"></canvas>
+    </div>
+
+    <!-- Main Application (initially hidden) -->
+    <div class="container bg-black flex" id="main-app" style="display: none;">
         <div class="left bg-black">
             <div class="close">
                 <img class="invert" src = "svg/close.svg" alt="">
@@ -119,7 +128,7 @@
                     <li>
                       <img class="invert" src="svg/search.svg" alt="search">
                       <span style="font-family: 'Montserrat Alternates', sans-serif;">Search</span>
-                   </li>
+</li>
                 </ul>
             </div>
 
@@ -179,7 +188,7 @@
                         <img src="img/english.jpg" alt="" width="170px">
                         <h2 style="font-family: 'Raleway Dots', cursive;font-weight: 500;font-weight: bold;">English Mix</h2>
                     </div>
-                    <div data-folder="south" class="card">
+                                          <div data-folder="south" class="card">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-top: 3px;">
                             <circle cx="12" cy="12" r="10" fill="#1db954"/>
