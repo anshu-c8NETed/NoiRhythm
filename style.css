@@ -95,39 +95,25 @@ button, input, svg, img {
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    /* Ensure it covers full viewport height */
-    height: 100vh;
-    width: 100vw;
-    display: flex; /* Use flexbox for main layout */
-    flex-direction: row; /* Default to row layout */
 }
 #main-app.show {
     opacity: 1;
     transform: scale(1);
 }
-html, body {
-    /* Explicitly set html/body to prevent default margins */
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%; /* For IE11 */
-    min-height: 100vh; /* Standard approach */
+body {
     background: #000;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrollbar on body */
-    /* Ensure body itself doesn't scroll */
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
-/* Main container using flexbox for layout */
+.cardContainer .card{
+    width: auto;
+}
 .container {
     display: flex;
-    flex-direction: row; /* Default to row */
-    width: 100%;
-    min-height: 100vh; /* Use min-height to adapt to content */
+    width: 100vw;
+    min-height: 100vh;
     background: #000;
-    /* Main container should not scroll itself */
-    overflow: hidden;
 }
 .songlist li.active {
     background-color: #222;
@@ -141,43 +127,26 @@ html, body {
     justify-content: space-between;
     width: 100%;
 }
-/* Left sidebar - default desktop state */
 .left {
     width: 25vw;
     padding: 5px;
     background: #000;
-    position: relative; /* Not fixed for desktop */
+    position: relative;
     z-index: 100;
-    /* Prevent scrolling within left sidebar unless necessary */
-    overflow-y: auto;
-    flex-shrink: 0; /* Prevent shrinking */
-    /* Add max-height to constrain if needed */
-    max-height: 100vh;
 }
 .right {
-    /* Takes remaining space */
-    flex-grow: 1;
+    width: 75vw;
     margin: 16px 0;
     position: relative;
     background: #111;
     border-radius: 8px;
-    /* This will be the main scrollable area */
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    /* Adjust height to account for margins and leave space for playbar */
-    /* height: calc(100vh - 32px - 60px); /* 16px top + 16px bottom margin + ~60px playbar */
-    /* Or rely on flexbox to manage height within .container */
-    /* Ensure it doesn't create its own horizontal scrollbar */
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .home {
     padding: 11px;
     background: #181818;
     border-radius: 8px;
     margin-bottom: 8px;
-    /* Prevent scrolling inside home */
-    overflow: hidden;
 }
 /* NoirRhythm Logo Styling */
 .noirhythm-brand {
@@ -354,17 +323,16 @@ html, body {
 /* UPDATED HEADER */
 .header {
     background: linear-gradient(135deg, #000 0%, #111 100%);
-    /* margin-top: -22px; /* This can cause issues, better to adjust padding */
+    margin-top: -22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0; /* Adjust padding instead of negative margin */
+    padding: 16px 0;
     width: 100%;
     overflow: hidden;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     min-height: 70px; /* Ensure consistent height */
-    flex-shrink: 0; /* Header should not shrink */
 }
 .header > .nav {
     padding: 0 16px;
@@ -383,18 +351,12 @@ html, body {
     color: #fff;
 }
 .library {
-    /* flex-grow: 1; /* Allow it to grow */
-    /* min-height: 80vh; /* This can conflict with flexbox */
+    min-height: 80vh;
     position: relative;
     background: #181818;
     border-radius: 8px;
     margin-top: 8px;
     padding: 12px;
-    /* Library should not scroll itself, songlist inside will */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Allow it to take available space in .left */
 }
 .playlists {
     font-family: Arial, Helvetica, sans-serif;
@@ -404,29 +366,17 @@ html, body {
     background: #111;
     border-radius: 8px;
     margin-top: 8px;
-    /* Playlists should not scroll itself, cardContainer inside will */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Allow it to take available space in .right */
 }
-/* Card Container - Main content area for playlists */
 .cardContainer {
     display: flex;
     align-items: center;
     text-align: left;
     flex-wrap: wrap;
-    /* margin: 10px; /* Margin can contribute to overflow */
-    /* padding: 10px; /* Padding inside .playlists can also contribute */
-    /* overflow-y: auto; /* This was a major cause of nested scrollbars */
-    /* max-height: 70vh; /* This also contributes */
-    margin: 10px 0 0 0; /* Reduce margin, especially bottom */
-    padding: 0 10px 10px 10px; /* Adjust padding */
+    margin: 10px;
+    overflow-y: auto;
+    max-height: 70vh;
+    margin-top: 15px;
     gap: 10px;
-    /* Make it scrollable if content overflows its container */
-    overflow-y: auto; /* Only scroll if needed */
-    /* Let flexbox handle height */
-    flex-grow: 1; /* Take available space */
 }
 .card {
     width: 170px;
@@ -444,7 +394,6 @@ html, body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     outline: none !important;
     box-shadow: none !important;
-    flex-shrink: 0; /* Prevent cards from shrinking */
 }
 .card:hover {
     cursor: pointer;
@@ -467,47 +416,35 @@ html, body {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
-    width: 100%; /* Ensure image fits card */
-    display: block; /* Remove potential inline spacing */
 }
 .card:hover img {
     transform: scale(1.05);
 }
-/* Removed redundant .playlists margin-top */
-/* .playlists {
+.playlists {
     margin-top: 7px;
-} */
-
-
-/* ====== FIXED PLAYBAR - Base Style ====== */
-/* This is the core fix for the color issue and scrollbar issue */
+}
+/* ====== FIXED PLAYBAR ====== */
 .playbar {
-    /* position: fixed; /* Keep it fixed for consistent bottom placement */
-    /* bottom: 15px; /* Adjusted */
-    /* Instead of fixed, make it part of the flex layout in .right */
-    width: 72vw; /* Will be overridden by media queries */
+    position: fixed;
+    bottom: 15px;
+    width: 72vw;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 21px;
-    /* CHANGED: Dark background by default - Fixing the core issue */
+    /* CHANGED: Dark background by default */
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
     padding: 15px 6px;
     border-radius: 13px;
     cursor: pointer;
     /* REMOVED: filter: invert(1); This was causing the light appearance */
     min-height: 39px;
-    /* z-index: 1000; /* Might not be needed if it's part of the flow */
+    z-index: 1000;
     transition: all 0.3s ease;
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     outline: none !important;
     box-shadow: none !important;
-    /* Make it part of the flex layout in .right */
-    flex-shrink: 0; /* Don't let it shrink */
-    margin: 10px auto 15px auto; /* Center it and add bottom margin */
-    /* Ensure it doesn't cause horizontal overflow */
-    max-width: calc(100% - 20px); /* Account for margins */
 }
 .playbar:hover {
     transform: translateY(-2px);
@@ -516,12 +453,10 @@ html, body {
 }
 .songlist ul {
     padding: 0 42px;
-    /* margin-right: 60px; /* Unnecessary */
-    /* padding: 3px; /* Duplicate */
-    /* padding-top: 3px; /* Duplicate */
-    /* margin: 3px; /* Duplicate */
-    padding: 3px 42px 3px 3px; /* Consolidated padding */
-    margin: 3px 60px 3px 3px; /* Consolidated margin */
+    margin-right: 60px;
+    padding: 3px;
+    padding-top: 3px;
+    margin: 3px;
 }
 .songlist ul li {
     list-style-type: none;
@@ -558,18 +493,12 @@ html, body {
     width: 344px;
     flex-grow: 1;
 }
-/* Songlist - Main scrollable area for songs in the left sidebar */
 .songlist {
-    /* overflow: auto; /* Changed to overflow-y */
-    /* height: 65vh; /* This can conflict */
-    /* margin: 14px 0; /* Can contribute to overflow */
+    overflow: auto;
+    height: 65vh;
+    margin: 14px 0;
     scrollbar-width: thin;
     scrollbar-color: #1db954 #333;
-    overflow-y: auto; /* Make it scrollable */
-    margin: 10px 0 0 0; /* Reduce margin */
-    padding: 0 5px 10px 5px; /* Adjust padding */
-    /* Let flexbox handle height */
-    flex-grow: 1; /* Take available space in .library */
 }
 .songlist::-webkit-scrollbar {
     width: 6px;
@@ -654,7 +583,7 @@ html, body {
     overflow: hidden;
     text-overflow: ellipsis;
     /* CHANGED: Default color to white to match dark theme */
-    color: #fff; /* Was #000 */
+    color: #fff;
     font-size: 17px;
     position: relative;
     margin-right: 4px;
@@ -662,7 +591,7 @@ html, body {
 }
 .songtime {
     /* CHANGED: Default color to white to match dark theme */
-    color: #fff; /* Was #000 */
+    color: #fff;
     margin: 11px;
     padding: 1px;
     font-size: 13px;
@@ -754,6 +683,14 @@ html, body {
     outline: none !important;
     box-shadow: none !important;
 }
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    color: #fff;
+}
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
     width: 8px;
@@ -811,5 +748,6 @@ html, body {
         opacity: 0.5;
     }
 }
+
 
 
