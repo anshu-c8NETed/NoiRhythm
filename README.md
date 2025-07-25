@@ -4,13 +4,6 @@
           
   *Inspired by Spotify and YouTube Music*
 
-> **Note:** Update the API endpoint in your JavaScript code to match your local server:
-> ```javascript
-> let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
-> ```
-> Replace `127.0.0.1:5500` with your actual server address and port in all places in the code respectively.
-
-
 ## 🚀 Setup Instructions
 
 ### **Step 1: Organize Your Music Files**
@@ -36,6 +29,9 @@ The JavaScript code will automatically:
 
 ### **Step 4: Launch & Enjoy**
 Your personal music streaming website is ready! Experience a sleek, ***Spotify-inspired interface*** with your own curated playlists.
+
+> **Note:** 
+> ```added hamburger functionality for other devices to improve responsiveness.```
 
 ## 🛠️ Technologies Used
 - **HTML5**
