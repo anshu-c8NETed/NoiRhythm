@@ -359,7 +359,6 @@
     .library .heading img {
         width: 22px;
         height: 22px;
-        filter: brightness(1.2);
     }
     
     .library .heading h2 {
