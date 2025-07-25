@@ -1,174 +1,58 @@
-.container {
-    display: flex;
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
 
-.left {
-    width: 25vw;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-}
-
-.right {
-    width: 75vw;
-    flex-grow: 1;
-}
-
-.hamburger, .close {
-    display: none;
-}
-
-/* Tablet and below - Enable hamburger functionality */
-@media (max-width: 1199px) {
-    .hamburger {
-        display: block !important;
-        cursor: pointer;
-    }
-    
-    .close {
-        display: block !important;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
-        z-index: 1002; /* Increased z-index */
-    }
-    
-    /* Hide left sidebar by default */
-    .left {
-        width: 0 !important;
-        min-width: 0 !important;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        height: 100vh;
-        z-index: 1001; /* Increased z-index */
-        transition: left 0.3s ease;
-        overflow: hidden;
-    }
-    
-    /* Show left sidebar when active */
-    .left.show {
-        left: 0;
-        width: 300px !important;
-        min-width: 300px !important;
-    }
-    
-    /* Right takes full width when left is hidden */
-    .right {
-        width: 100vw !important;
-        flex-grow: 1;
-        margin: 0;
-        padding-bottom: 90px; /* Add padding to prevent playbar overlap */
-    }
-    
-    /* Adjust playbar for full width */
-    .playbar {
-        width: 95vw !important;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 999; /* Lower than sidebar */
-    }
-
-    /* Main content area adjustments */
-    .playlists {
-        height: calc(100vh - 140px) !important; /* Adjust for header and playbar */
-        overflow-y: auto;
-    }
-
-    .cardContainer {
-        max-height: calc(100vh - 200px) !important; /* Prevent overflow */
-        padding-bottom: 20px;
-    }
-
-    /* Button adjustments for tablet and below */
-    .buttons {
-        padding-right: 20px !important;
-        gap: 2px !important;
-        margin-right: 0 !important;
-        flex-shrink: 0;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .signupbtn {
-        padding: 6px 10px !important;
-        font-size: 14px !important;
-        font-weight: 600;
-    }
-
-    .loginbtn {
-        padding: 8px 14px !important;
-        font-size: 14px !important;
-        font-weight: 600;
-        min-width: 65px !important;
-        white-space: nowrap;
-    }
-
-    .header {
-        padding: 30px 0 !important;
-        width: 100%;
-        overflow: visible;
-    }
-
-    /* NoirRhythm logo adjustments for tablet */
-    .noirhythm-logo {
-        width: 180px;
-        max-height: 60px;
-    }
-
-    /* Sidebar height adjustments */
-    .library {
-        min-height: calc(100vh - 160px) !important; /* Adjust for proper height */
-        max-height: calc(100vh - 160px) !important;
-        overflow-y: auto;
-    }
-
-    .songlist {
-        height: calc(100vh - 280px) !important; /* Proper height calculation */
-        overflow-y: auto;
-    }
-}
-
-/* Mobile specific adjustments */
 @media (max-width: 768px) {
     /* Main container height management */
     .right {
-        padding-bottom: 120px !important; /* Increased padding for mobile playbar */
+        padding-bottom: 120px !important;
         height: 100vh;
         overflow-y: auto;
+        background: #111;
     }
 
     /* Playlists container height fix */
     .playlists {
-        height: calc(100vh - 160px) !important; /* Account for header and playbar */
+        height: calc(100vh - 160px) !important;
         overflow-y: auto;
         padding-bottom: 20px;
+        background: #1a1a1a;
+        border-radius: 8px;
     }
 
+    .cardContainer .card{
+        width: auto;
+    }
     /* Card container and cards */
     .cardContainer {
         justify-content: center;
         padding: 0 15px;
         flex-wrap: wrap;
         margin: 10px 5px;
-        max-height: calc(100vh - 220px) !important; /* Prevent content overflow */
+        max-height: calc(100vh - 220px) !important;
         overflow-y: auto;
         padding-bottom: 30px;
+        gap: 8px;
     }
     
     .card {
         width: 140px !important;
         margin: 8px 6px;
         padding: 12px 8px;
+        background: rgba(29, 185, 84, 0.05);
+        border: 1px solid rgba(29, 185, 84, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+        background: rgba(29, 185, 84, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(29, 185, 84, 0.3);
     }
     
     .card img {
         width: 100% !important;
         height: auto;
         max-width: 140px;
+        border-radius: 6px;
     }
     
     .card h2 {
@@ -176,17 +60,27 @@
         margin-top: 8px;
         text-align: center;
         line-height: 1.2;
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+    
+    .card:hover h2 {
+        color: #1db954;
     }
     
     /* Play button positioning for mobile cards */
     .play {
         top: 115px !important;
         right: 15px !important;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 50%;
+        padding: 4px;
     }
     
     .play svg {
         width: 40px !important;
         height: 40px !important;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
     
     /* Playlist heading */
@@ -195,6 +89,8 @@
         text-align: center;
         padding: 0 15px !important;
         margin-bottom: 15px;
+        color: #fff;
+        font-weight: 600;
     }
     
     /* Mobile playbar adjustments */
@@ -205,8 +101,12 @@
         gap: 8px;
         padding: 12px 8px;
         min-height: auto !important;
-        border-radius: 8px;
-        z-index: 998; /* Ensure it's below sidebar */
+        border-radius: 12px;
+        z-index: 998;
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(29, 185, 84, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
     
     .flexbar {
@@ -223,6 +123,17 @@
         margin-top: 0 !important;
         position: relative;
         height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+    }
+    
+    .seekbar:hover {
+        height: 6px;
+    }
+    
+    .circle {
+        background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+        box-shadow: 0 2px 8px rgba(29, 185, 84, 0.6);
     }
     
     .songbutton {
@@ -231,11 +142,22 @@
         justify-content: center;
         gap: 15px;
         margin: 5px 0 !important;
+        background: rgba(29, 185, 84, 0.1);
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(29, 185, 84, 0.3);
     }
     
     .songbutton img {
         width: 30px !important;
         height: 30px !important;
+        filter: brightness(1.2);
+        transition: all 0.3s ease;
+    }
+    
+    .songbutton img:hover {
+        transform: scale(1.2);
+        filter: brightness(1.5);
     }
     
     .songinfo {
@@ -247,7 +169,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 180px;
-        padding-top: 8px;
+        padding: 8px 12px;
+        background: rgba(29, 185, 84, 0.1);
+        border-radius: 12px;
+        color: #fff !important;
+        font-weight: 500;
+        border: 1px solid rgba(29, 185, 84, 0.2);
     }
     
     .timevol {
@@ -256,11 +183,17 @@
         gap: 12px;
         flex-wrap: wrap;
         align-items: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 6px 12px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .songtime {
         font-size: 11px !important;
         margin: 0 !important;
+        color: #fff !important;
+        font-weight: 500;
     }
     
     .volume {
@@ -272,16 +205,24 @@
     .volume img {
         width: 20px;
         height: 20px;
+        filter: brightness(1.2);
     }
     
     .range input {
         width: 70px;
         height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
     }
     
-    /* Header adjustments for mobile - FIXED */
+    .range input::-webkit-slider-thumb {
+        background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+        box-shadow: 0 2px 6px rgba(29, 185, 84, 0.6);
+    }
+    
+    /* Header adjustments for mobile */
     .header {
-        padding: 10px 0 !important;
+        padding: 12px 0 !important;
         flex-wrap: nowrap;
         gap: 0;
         margin-top: 3px;
@@ -291,6 +232,8 @@
         overflow: hidden;
         height: auto;
         min-height: 60px;
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        border-bottom: 1px solid rgba(29, 185, 84, 0.2);
     }
     
     .header .nav {
@@ -300,19 +243,26 @@
     }
     
     .header .nav .flex {
-        gap: 6px !important;
+        gap: 8px !important;
         margin-top: 5px !important;
     }
     
     .header .nav svg {
-        width: 18px !important;
-        height: 18px !important;
+        width: 20px !important;
+        height: 20px !important;
+        stroke: #1db954;
+        transition: all 0.3s ease;
+    }
+    
+    .header .nav svg:hover {
+        stroke: #1ed760;
+        transform: scale(1.1);
     }
 
-    /* Mobile button styling - FIXED */
+    /* Mobile button styling */
     .buttons {
         padding-right: 16px !important;
-        gap: 2px !important;
+        gap: 6px !important;
         margin-right: 0 !important;
         flex-shrink: 0;
         justify-content: flex-end;
@@ -327,30 +277,56 @@
         min-width: 60px !important;
         white-space: nowrap;
         border-radius: 18px;
+        background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+        box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
     }
     
     .signupbtn {
         padding: 6px 10px !important;
         font-size: 13px !important;
         font-weight: 600;
+        border: 1px solid rgba(29, 185, 84, 0.5);
+        background: rgba(29, 185, 84, 0.1);
+        color: #1db954;
+    }
+    
+    .signupbtn:hover {
+        background: rgba(29, 185, 84, 0.2);
+        color: #1ed760;
     }
     
     /* Sidebar content adjustments */
     .left.show {
         width: 280px !important;
         min-width: 280px !important;
-        z-index: 1001; /* Above playbar */
+        z-index: 1002;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(26, 26, 26, 0.98) 100%);
+        backdrop-filter: blur(15px);
+        border-right: 2px solid #1db954;
+    }
+    
+    .home {
+        background: rgba(29, 185, 84, 0.1);
+        border: 1px solid rgba(29, 185, 84, 0.2);
+        border-radius: 10px;
     }
     
     .home ul li {
         gap: 12px !important;
-        padding: 8px 5px;
+        padding: 10px 8px;
         font-size: 14px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    
+    .home ul li:hover {
+        background: rgba(29, 185, 84, 0.2);
+        transform: translateX(5px);
     }
     
     .home ul li img {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
     }
 
     /* NoirRhythm logo adjustments for mobile */
@@ -363,33 +339,52 @@
         min-height: calc(100vh - 180px) !important;
         max-height: calc(100vh - 180px) !important;
         overflow-y: auto;
+        background: rgba(29, 185, 84, 0.05);
+        border: 1px solid rgba(29, 185, 84, 0.2);
+        border-radius: 10px;
     }
     
     .library .heading {
         font-size: 14px;
-        gap: 6px !important;
+        gap: 8px !important;
         position: sticky;
         top: 0;
-        background: inherit;
+        background: rgba(29, 185, 84, 0.1);
         z-index: 10;
-        padding-bottom: 10px;
+        padding: 10px 8px;
+        border-radius: 8px;
+        margin-bottom: 10px;
     }
     
     .library .heading img {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
+        filter: brightness(1.2);
     }
     
     .library .heading h2 {
         font-size: 16px !important;
         margin-top: -2px !important;
+        color: #1db954;
+        font-weight: 600;
     }
     
     .songlist {
-        height: calc(100vh - 320px) !important; /* Better height calculation */
+        height: calc(100vh - 320px) !important;
         margin: 10px 0;
         overflow-y: auto;
         padding-bottom: 20px;
+        scrollbar-width: thin;
+        scrollbar-color: #1db954 #333;
+    }
+    
+    .songlist::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .songlist::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+        border-radius: 2px;
     }
     
     .songlist ul {
@@ -397,30 +392,38 @@
     }
     
     .songlist ul li {
-        margin: 6px 0;
-        padding: 8px 6px;
+        margin: 8px 0;
+        padding: 10px 8px;
         font-size: 13px;
+        background: rgba(29, 185, 84, 0.05);
+        border: 1px solid rgba(29, 185, 84, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .songlist ul li:hover {
+        background: rgba(29, 185, 84, 0.15);
+        border-color: #1db954;
+        transform: translateX(3px);
+        box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
     }
     
     .songlist ul li img {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
+        filter: brightness(1.2);
     }
     
     .songlist .info {
         width: 140px !important;
         font-size: 13px;
+        color: #fff;
     }
     
     .songlist .info div:first-child {
         font-size: 13px;
         line-height: 1.2;
-    }
-    
-    .songlist .info div:last-child {
-        font-size: 11px;
-        color: #888;
-        margin-top: 2px;
+        font-weight: 500;
     }
     
     .playnow {
@@ -429,29 +432,38 @@
     
     .playnow span {
         font-size: 11px !important;
-        padding: 4px 6px !important;
-        width: 45px !important;
+        padding: 6px 8px !important;
+        width: 50px !important;
+        color: #1db954;
+        font-weight: 500;
     }
     
     .playnow img {
-        width: 20px !important;
-        height: 20px !important;
+        width: 22px !important;
+        height: 22px !important;
+        filter: brightness(1.2);
+    }
+
+    /* Matrix intro mobile adjustments */
+    .matrix-text {
+        font-size: 2.5rem !important;
+        letter-spacing: 0.1em;
     }
     
-    .footer {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
-        font-size: 9px;
-        flex-wrap: wrap;
-        gap: 6px;
-        line-height: 1.2;
+    .matrix-subtitle {
+        font-size: 1rem !important;
+        letter-spacing: 0.2em;
+    }
+    
+    .matrix-container {
+        padding: 0 20px;
     }
 }
 
-/* Height-specific media queries for short screens */
 @media (max-height: 700px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .playlists {
         height: calc(100vh - 140px) !important;
     }
@@ -468,9 +480,20 @@
     .songlist {
         height: calc(100vh - 280px) !important;
     }
+    
+    .matrix-text {
+        font-size: 2.5rem !important;
+    }
+    
+    .matrix-subtitle {
+        font-size: 1rem !important;
+    }
 }
 
 @media (max-height: 600px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .right {
         padding-bottom: 100px !important;
     }
@@ -496,10 +519,36 @@
     .songlist {
         height: calc(100vh - 260px) !important;
     }
+    
+    .matrix-text {
+        font-size: 2.2rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .matrix-subtitle {
+        font-size: 0.9rem !important;
+    }
 }
 
-/* Very small screens */
+@media (max-height: 500px) {
+    .cardContainer .card{
+        width: auto;
+    }
+    .matrix-text {
+        font-size: 2.2rem !important;
+        margin-bottom: 0.3rem;
+    }
+    
+    .matrix-subtitle {
+        font-size: 0.9rem !important;
+    }
+}
+
+
 @media (max-width: 480px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .card {
         width: 120px !important;
         margin: 5px 4px;
@@ -532,20 +581,6 @@
     .songlist .info {
         width: 120px !important;
         font-size: 12px;
-    }
-    
-    .songlist .info div:first-child {
-        font-size: 12px;
-    }
-    
-    .songlist .info div:last-child {
-        font-size: 10px;
-    }
-    
-    .playbar {
-        width: 99vw !important;
-        bottom: 3px;
-        padding: 10px 6px;
     }
     
     .songinfo {
@@ -592,11 +627,14 @@
         padding: 0 10px !important;
     }
 
-    /* Very small screen button adjustments - FIXED */
+    .header .nav svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
     .buttons {
-        padding-right: 25px !important;
-        gap: 2px !important;
-        margin-right: 0 !important;
+        padding-right: 12px !important;
+        gap: 4px !important;
     }
     
     .loginbtn {
@@ -611,26 +649,57 @@
         font-size: 12px !important;
     }
 
-    /* NoirRhythm logo adjustments for very small screens */
     .noirhythm-logo {
         width: 140px !important;
         max-height: 50px !important;
     }
+    
+    .playbar {
+        width: 99vw !important;
+        bottom: 3px;
+        padding: 8px 6px;
+        border-radius: 10px;
+    }
+
+    .matrix-text {
+        font-size: 2rem !important;
+        letter-spacing: 0.05em;
+    }
+    
+    .matrix-subtitle {
+        font-size: 0.9rem !important;
+        letter-spacing: 0.15em;
+    }
+    
+    .matrix-container {
+        padding: 0 15px;
+    }
 }
 
-/* Tablet range adjustments */
 @media (min-width: 769px) and (max-width: 1199px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .cardContainer {
         padding: 0 20px;
         justify-content: flex-start;
         max-height: calc(100vh - 180px) !important;
         overflow-y: auto;
+        gap: 12px;
     }
     
     .card {
         width: 160px !important;
         margin: 10px 8px;
         padding: 15px 12px;
+        background: rgba(29, 185, 84, 0.08);
+        border: 1px solid rgba(29, 185, 84, 0.25);
+    }
+    
+    .card:hover {
+        background: rgba(29, 185, 84, 0.15);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(29, 185, 84, 0.25);
     }
     
     .card img {
@@ -654,6 +723,8 @@
     .playbar {
         width: 92vw !important;
         padding: 14px 20px;
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+        border: 1px solid rgba(29, 185, 84, 0.3);
     }
     
     .songlist {
@@ -668,6 +739,7 @@
     .songinfo {
         font-size: 16px !important;
         max-width: 250px;
+        color: #fff !important;
     }
     
     .songbutton img {
@@ -690,17 +762,17 @@
     
     .playlists h1 {
         font-size: 26px !important;
+        color: #fff;
     }
 
     .playlists {
         height: calc(100vh - 150px) !important;
+        background: #1a1a1a;
     }
 
-    /* Tablet button adjustments - FIXED */
     .buttons {
         padding-right: 18px !important;
         gap: 10px !important;
-        margin-right: 0 !important;
     }
 
     .signupbtn {
@@ -718,15 +790,26 @@
         padding: 0 18px !important;
     }
 
-    /* NoirRhythm logo adjustments for tablet */
     .noirhythm-logo {
-        width: 185px !important;
-        max-height: 62px !important;
+        width: 175px !important;
+        max-height: 60px !important;
+    }
+    
+    .library {
+        background: rgba(29, 185, 84, 0.08);
+        border: 1px solid rgba(29, 185, 84, 0.25);
+    }
+    
+    .home {
+        background: rgba(29, 185, 84, 0.12);
+        border: 1px solid rgba(29, 185, 84, 0.3);
     }
 }
 
-/* Large desktop */
 @media (min-width: 1200px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .left {
         width: 25vw;
     }
@@ -737,21 +820,30 @@
     
     .playbar {
         width: 72vw !important;
+        background: linear-gradient(135deg, rgba(232, 227, 227, 0.95) 0%, rgba(247, 187, 187, 0.95) 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .card {
         width: 170px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
     
     .songlist .info {
         width: 344px;
     }
 
-    /* Desktop button spacing */
     .buttons {
         padding-right: 25px !important;
         gap: 12px !important;
-        margin-right: 0 !important;
     }
 
     .signupbtn {
@@ -765,14 +857,16 @@
         min-width: 78px !important;
     }
 
-    /* NoirRhythm logo for desktop */
     .noirhythm-logo {
-        width: 200px !important;
-        max-height: 65px !important;
+        width: 190px !important;
+        max-height: 62px !important;
     }
 }
 
 @media (min-width: 1400px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .left {
         width: 20vw;
     }
@@ -789,15 +883,16 @@
         padding-right: 30px !important;
     }
 
-    /* NoirRhythm logo for large desktop */
     .noirhythm-logo {
-        width: 210px !important;
-        max-height: 68px !important;
+        width: 200px !important;
+        max-height: 65px !important;
     }
 }
 
-/* Extra large screens */
 @media (min-width: 1600px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .left {
         width: 18vw;
     }
@@ -812,6 +907,7 @@
     
     .cardContainer {
         padding: 0 30px;
+        gap: 15px;
     }
     
     .card {
@@ -819,55 +915,346 @@
         margin: 12px;
         padding: 20px;
     }
+
+    .buttons {
+        padding-right: 35px !important;
+    }
+    
+    .noirhythm-logo {
+        width: 210px !important;
+        max-height: 68px !important;
+    }
+}
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .matrix-text {
+        font-size: 2rem !important;
+        margin-bottom: 0.3rem;
+    }
+    
+    .matrix-subtitle {
+        font-size: 0.8rem !important;
+    }
+    
+    .playbar {
+        bottom: 3px !important;
+        padding: 8px !important;
+    }
+    
+    .right {
+        padding-bottom: 80px !important;
+    }
+    
+    .playlists {
+        height: calc(100vh - 100px) !important;
+    }
+    
+    .cardContainer {
+        max-height: calc(100vh - 140px) !important;
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .matrix-text {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    }
+    
+    .card img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    .noirhythm-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .matrix-intro,
+    .card,
+    .songbutton img,
+    .play,
+    .hamburger,
+    .close,
+    .songlist ul li {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .matrix-text,
+    .matrix-subtitle {
+        animation: none !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .matrix-intro {
+        background: #f0f0f0;
+    }
+    
+    .matrix-text,
+    .matrix-subtitle {
+        color: #333;
+        text-shadow: 0 0 10px #333;
+    }
+    
+    #matrix-canvas {
+        filter: invert(1);
+    }
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Desktop styles (default) */
+.left {
+    width: 25vw;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.right {
+    width: 75vw;
+    flex-grow: 1;
+}
+
+.hamburger, .close {
+    display: none;
 }
 
 @media (max-width: 1199px) {
+    .cardContainer .card{
+        width: auto;
+    }
     .hamburger {
         display: block !important;
-        width: 44px; /* Minimum touch target size */
-        height: 44px;
-        padding: 10px;
         cursor: pointer;
-        -webkit-tap-highlight-color: transparent; /* Remove blue highlight on tap */
-        touch-action: manipulation; /* Improve touch responsiveness */
+        z-index: 1003;
     }
     
     .close {
         display: block !important;
-        width: 44px;
-        height: 44px;
-        padding: 10px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
         cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
+        z-index: 1004;
+        width: 24px;
+        height: 24px;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 50%;
+        padding: 4px;
     }
     
-    /* Ensure the left panel has proper touch handling */
+    /* Hide left sidebar by default */
     .left {
-        touch-action: pan-y; /* Allow vertical scrolling within menu */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        width: 0 !important;
+        min-width: 0 !important;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        z-index: 1002;
+        transition: left 0.3s ease, width 0.3s ease;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(29, 185, 84, 0.3);
     }
     
-    /* Prevent zoom on double tap for buttons */
-    .signupbtn, .loginbtn, .card, .play {
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
+    /* Show left sidebar when active */
+    .left.show {
+        left: 0;
+        width: 300px !important;
+        min-width: 300px !important;
+        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
     }
     
-    /* Make sure cards are properly sized for touch */
-    .card {
-        min-height: 44px;
-        touch-action: manipulation;
+    /* Right takes full width when left is hidden */
+    .right {
+        width: 100vw !important;
+        flex-grow: 1;
+        margin: 0;
+        padding-bottom: 100px;
+        background: #111;
     }
     
-    /* Improve song list item touch targets */
-    .songlist ul li {
-        min-height: 44px;
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
+    /* Adjust playbar for full width */
+    .playbar {
+        width: 95vw !important;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        max-width: none;
     }
-}
+
+    /* Main content area adjustments */
+    .playlists {
+        height: calc(100vh - 140px) !important;
+        overflow-y: auto;
+        padding-bottom: 20px;
+    }
+
+    .cardContainer {
+        max-height: calc(100vh - 200px) !important;
+        padding-bottom: 20px;
+        overflow-y: auto;
+    }
+
+    /* Button adjustments for tablet and below */
     .buttons {
-        padding-right: 35px !important;
+        padding-right: 20px !important;
+        gap: 8px !important;
+        margin-right: 0 !important;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .signupbtn {
+        padding: 6px 10px !important;
+        font-size: 14px !important;
+        font-weight: 600;
+    }
+
+    .loginbtn {
+        padding: 8px 14px !important;
+        font-size: 14px !important;
+        font-weight: 600;
+        min-width: 65px !important;
+        white-space: nowrap;
+    }
+
+    .header {
+        padding: 20px 0 !important;
+        width: 100%;
+        overflow: visible;
+        background: linear-gradient(135deg, #000 0%, #111 100%);
+    }
+
+    /* NoirRhythm logo adjustments for tablet */
+    .noirhythm-logo {
+        width: 170px !important;
+        max-height: 58px !important;
+    }
+
+    /* Sidebar content adjustments */
+    .library {
+        min-height: calc(100vh - 160px) !important;
+        max-height: calc(100vh - 160px) !important;
+        overflow-y: auto;
+    }
+
+    .songlist {
+        height: calc(100vh - 280px) !important;
+        overflow-y: auto;
+    }
+
+    /* Enhanced hover effects for tablet */
+    .card {
+        transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
     }
 }
+
+
+@media (prefers-color-scheme: dark) {
+    .matrix-intro {
+        background: #000;
+    }
+    
+    .matrix-text,
+    .matrix-subtitle {
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+}
+
+
+
+@media print {
+    .matrix-intro,
+    .playbar,
+    .hamburger,
+    .close {
+        display: none !important;
+    }
+    
+    .container {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    .left, .right {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        background: white !important;
+    }
+}
+
+@media (hover: hover) {
+    .card:hover .play {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .songbutton img:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+    }
+}
+
+@media (hover: none) {
+    .play {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .songbutton img {
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .play {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Focus indicators */
+.card:focus-visible,
+.songbutton img:focus-visible,
+.play:focus-visible,
+.loginbtn:focus-visible,
+.signupbtn:focus-visible {
+    outline: 2px solid #1db954;
+    outline-offset: 2px;
+}
+
+
+
