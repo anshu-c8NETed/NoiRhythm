@@ -1,64 +1,100 @@
+/* ===========================================
+   MOBILE RESPONSIVE FIXES (768px and below)
+   =========================================== */
 @media (max-width: 768px) {
+    /* CRITICAL: Prevent horizontal scrolling */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+    
+    .container {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+
     /* Main container height management */
     .right {
         padding-bottom: 120px !important;
         height: 100vh;
         overflow-y: auto;
+        overflow-x: hidden !important;
         background: #111;
+        width: 100vw !important;
+        max-width: 100vw !important;
     }
+
     /* Playlists container height fix */
     .playlists {
         height: calc(100vh - 160px) !important;
         overflow-y: auto;
+        overflow-x: hidden !important;
         padding-bottom: 20px;
         background: #1a1a1a;
         border-radius: 8px;
+        max-width: 100%;
     }
-    .cardContainer .card{
-        width: auto;
-    }
-    /* Card container and cards */
+
+    /* Card container and cards - FIXED OVERFLOW */
     .cardContainer {
         justify-content: center;
-        padding: 0 15px;
+        padding: 0 10px !important;
         flex-wrap: wrap;
-        margin: 10px 5px;
+        margin: 10px 0 !important;
         max-height: calc(100vh - 220px) !important;
         overflow-y: auto;
+        overflow-x: hidden !important;
         padding-bottom: 30px;
         gap: 8px;
+        width: 100% !important;
+        max-width: 100% !important;
     }
+
     .card {
         width: 140px !important;
-        margin: 8px 6px;
-        padding: 12px 8px;
+        max-width: 140px !important;
+        margin: 8px 6px !important;
+        padding: 12px 8px !important;
         background: rgba(29, 185, 84, 0.05);
         border: 1px solid rgba(29, 185, 84, 0.2);
         border-radius: 8px;
         transition: all 0.3s ease;
+        flex-shrink: 0;
+        overflow: hidden;
     }
+
     .card:hover {
         background: rgba(29, 185, 84, 0.1);
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(29, 185, 84, 0.3);
     }
+
     .card img {
         width: 100% !important;
         height: auto;
-        max-width: 140px;
+        max-width: 140px !important;
         border-radius: 6px;
+        object-fit: cover;
     }
+
     .card h2 {
-        font-size: 14px;
+        font-size: 14px !important;
         margin-top: 8px;
         text-align: center;
         line-height: 1.2;
         color: #fff;
         transition: color 0.3s ease;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .card:hover h2 {
         color: #1db954;
     }
+
     /* Play button positioning for mobile cards */
     .play {
         top: 115px !important;
@@ -67,11 +103,13 @@
         border-radius: 50%;
         padding: 4px;
     }
+
     .play svg {
         width: 40px !important;
         height: 40px !important;
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
+
     /* Playlist heading */
     .playlists h1 {
         font-size: 22px !important;
@@ -81,13 +119,18 @@
         color: #fff;
         font-weight: 600;
     }
-    /* Mobile playbar adjustments */
+
+    /* FIXED MOBILE PLAYBAR - No right shift */
     .playbar {
-        width: 98vw !important;
-        bottom: 5px;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px 8px;
+        position: fixed !important;
+        bottom: 5px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100vw - 20px) !important;
+        max-width: calc(100vw - 20px) !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 12px 8px !important;
         min-height: auto !important;
         border-radius: 12px;
         z-index: 998;
@@ -95,782 +138,851 @@
         backdrop-filter: blur(20px);
         border: 1px solid rgba(29, 185, 84, 0.3);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        overflow: hidden !important;
     }
+
     .flexbar {
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-        padding: 0;
-        align-items: center;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        align-items: center !important;
+        overflow: hidden !important;
     }
+
     .seekbar {
-        order: -1;
-        width: 100%;
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
         margin-top: 0 !important;
-        position: relative;
+        position: relative !important;
         height: 4px;
         background: rgba(255, 255, 255, 0.2);
         border-radius: 2px;
+        overflow: hidden;
     }
+
     .seekbar:hover {
         height: 6px;
     }
+
     .circle {
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         box-shadow: 0 2px 8px rgba(29, 185, 84, 0.6);
     }
+
     .songbutton {
-        order: 1;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
+        order: 1 !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
         margin: 5px 0 !important;
         background: rgba(29, 185, 84, 0.1);
-        padding: 8px 20px;
+        padding: 8px 20px !important;
         border-radius: 20px;
         border: 1px solid rgba(29, 185, 84, 0.3);
+        flex-shrink: 0;
+        overflow: hidden;
     }
+
     .songbutton img {
         width: 30px !important;
         height: 30px !important;
         filter: brightness(1.2);
         transition: all 0.3s ease;
     }
+
     .songbutton img:hover {
         transform: scale(1.2);
         filter: brightness(1.5);
     }
+
     .songinfo {
-        order: 2;
-        text-align: center;
+        order: 2 !important;
+        text-align: center !important;
         font-size: 13px !important;
         margin: 0 !important;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 180px;
-        padding: 8px 12px;
+        max-width: 200px !important;
+        padding: 8px 12px !important;
         background: rgba(29, 185, 84, 0.1);
         border-radius: 12px;
         color: #fff !important;
         font-weight: 500;
         border: 1px solid rgba(29, 185, 84, 0.2);
     }
+
     .timevol {
-        order: 3;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        align-items: center;
+        order: 3 !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
         background: rgba(0, 0, 0, 0.3);
-        padding: 6px 12px;
+        padding: 6px 12px !important;
         border-radius: 15px;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+        min-width: fit-content;
+        overflow: hidden;
     }
+
     .songtime {
         font-size: 11px !important;
         margin: 0 !important;
         color: #fff !important;
         font-weight: 500;
+        white-space: nowrap;
     }
+
     .volume {
-        display: flex;
-        align-items: center;
-        gap: 6px;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0;
+        min-width: fit-content;
     }
+
     .volume img {
-        width: 20px;
-        height: 20px;
+        width: 20px !important;
+        height: 20px !important;
         filter: brightness(1.2);
     }
+
     .range input {
-        width: 70px;
+        width: 70px !important;
+        max-width: 70px !important;
         height: 4px;
         background: rgba(255, 255, 255, 0.3);
         border-radius: 2px;
     }
+
     .range input::-webkit-slider-thumb {
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         box-shadow: 0 2px 6px rgba(29, 185, 84, 0.6);
     }
-    /* Header adjustments for mobile */
+
+    /* FIXED HEADER - No overflow issues */
     .header {
         padding: 12px 0 !important;
-        flex-wrap: nowrap;
-        gap: 0;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
         margin-top: 3px;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        overflow: hidden;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
         height: auto;
         min-height: 60px;
         background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
         border-bottom: 1px solid rgba(29, 185, 84, 0.2);
     }
+
     .header .nav {
-        flex-grow: 0;
+        flex-grow: 0 !important;
         padding: 0 12px !important;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
+        overflow: hidden;
     }
+
     .header .nav .flex {
         gap: 8px !important;
         margin-top: 5px !important;
+        overflow: hidden;
     }
+
     .header .nav svg {
         width: 20px !important;
         height: 20px !important;
         stroke: #1db954;
         transition: all 0.3s ease;
     }
+
     .header .nav svg:hover {
         stroke: #1ed760;
         transform: scale(1.1);
     }
-    /* Mobile button styling */
+
+    /* FIXED MOBILE BUTTONS - No right shift */
     .buttons {
-        padding-right: 16px !important;
+        padding-right: 12px !important;
         gap: 6px !important;
         margin-right: 0 !important;
-        flex-shrink: 0;
-        justify-content: flex-end;
-        align-items: center;
-        min-width: fit-content;
+        flex-shrink: 0 !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        min-width: fit-content !important;
+        max-width: 50% !important;
+        overflow: hidden !important;
     }
+
     .loginbtn {
         padding: 6px 12px !important;
         font-size: 13px !important;
-        font-weight: 600;
+        font-weight: 600 !important;
         min-width: 60px !important;
-        white-space: nowrap;
-        border-radius: 18px;
-        background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
-        box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
+        max-width: 80px !important;
+        white-space: nowrap !important;
+        border-radius: 18px !important;
+        background: linear-gradient(135deg, #1db954 0%, #1ed760 100%) !important;
+        box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4) !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
+
     .signupbtn {
         padding: 6px 10px !important;
         font-size: 13px !important;
-        font-weight: 600;
-        border: 1px solid rgba(29, 185, 84, 0.5);
-        background: rgba(29, 185, 84, 0.1);
-        color: #1db954;
+        font-weight: 600 !important;
+        max-width: 70px !important;
+        border: 1px solid rgba(29, 185, 84, 0.5) !important;
+        background: rgba(29, 185, 84, 0.1) !important;
+        color: #1db954 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
+
     .signupbtn:hover {
-        background: rgba(29, 185, 84, 0.2);
-        color: #1ed760;
+        background: rgba(29, 185, 84, 0.2) !important;
+        color: #1ed760 !important;
     }
+
     /* Sidebar content adjustments */
     .left.show {
         width: 280px !important;
         min-width: 280px !important;
+        max-width: 280px !important;
         z-index: 1002;
         background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(26, 26, 26, 0.98) 100%);
         backdrop-filter: blur(15px);
         border-right: 2px solid #1db954;
+        overflow: hidden !important;
     }
+
     .home {
         background: rgba(29, 185, 84, 0.1);
         border: 1px solid rgba(29, 185, 84, 0.2);
         border-radius: 10px;
     }
+
     .home ul li {
         gap: 12px !important;
-        padding: 10px 8px;
-        font-size: 14px;
+        padding: 10px 8px !important;
+        font-size: 14px !important;
         border-radius: 6px;
         transition: all 0.3s ease;
+        overflow: hidden;
     }
+
     .home ul li:hover {
         background: rgba(29, 185, 84, 0.2);
         transform: translateX(5px);
     }
+
     .home ul li img {
-        width: 22px;
-        height: 22px;
+        width: 22px !important;
+        height: 22px !important;
     }
+
     /* NoirRhythm logo adjustments for mobile */
     .noirhythm-logo {
         width: 160px !important;
+        max-width: 160px !important;
         max-height: 55px !important;
     }
+
     .library {
         min-height: calc(100vh - 180px) !important;
         max-height: calc(100vh - 180px) !important;
         overflow-y: auto;
+        overflow-x: hidden !important;
         background: rgba(29, 185, 84, 0.05);
         border: 1px solid rgba(29, 185, 84, 0.2);
         border-radius: 10px;
     }
+
     .library .heading {
-        font-size: 14px;
+        font-size: 14px !important;
         gap: 8px !important;
         position: sticky;
         top: 0;
         background: rgba(29, 185, 84, 0.1);
         z-index: 10;
-        padding: 10px 8px;
+        padding: 10px 8px !important;
         border-radius: 8px;
         margin-bottom: 10px;
     }
+
     .library .heading img {
-        width: 22px;
-        height: 22px;
+        width: 22px !important;
+        height: 22px !important;
     }
+
     .library .heading h2 {
         font-size: 16px !important;
         margin-top: -2px !important;
         color: #1db954;
         font-weight: 600;
     }
+
     .songlist {
         height: calc(100vh - 320px) !important;
-        margin: 10px 0;
+        margin: 10px 0 !important;
         overflow-y: auto;
+        overflow-x: hidden !important;
         padding-bottom: 20px;
         scrollbar-width: thin;
         scrollbar-color: #1db954 #333;
     }
+
     .songlist::-webkit-scrollbar {
         width: 4px;
     }
+
     .songlist::-webkit-scrollbar-thumb {
         background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
         border-radius: 2px;
     }
+
     .songlist ul {
-        padding: 0 10px;
+        padding: 0 10px !important;
+        overflow: hidden !important;
     }
+
     .songlist ul li {
-        margin: 8px 0;
-        padding: 10px 8px;
-        font-size: 13px;
+        margin: 8px 0 !important;
+        padding: 10px 8px !important;
+        font-size: 13px !important;
         background: rgba(29, 185, 84, 0.05);
         border: 1px solid rgba(29, 185, 84, 0.2);
         border-radius: 8px;
         transition: all 0.3s ease;
+        overflow: hidden;
     }
+
     .songlist ul li:hover {
         background: rgba(29, 185, 84, 0.15);
         border-color: #1db954;
         transform: translateX(3px);
         box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
     }
+
     .songlist ul li img {
-        width: 18px;
-        height: 18px;
+        width: 18px !important;
+        height: 18px !important;
         filter: brightness(1.2);
+        filter: invert(1);
     }
+
     .songlist .info {
         width: 140px !important;
-        font-size: 13px;
+        max-width: 140px !important;
+        font-size: 13px !important;
         color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .songlist .info div:first-child {
-        font-size: 13px;
+        font-size: 13px !important;
         line-height: 1.2;
         font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .playnow {
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
     }
+
     .playnow span {
         font-size: 11px !important;
         padding: 6px 8px !important;
         width: 50px !important;
+        max-width: 50px !important;
         color: #1db954;
         font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .playnow img {
         width: 22px !important;
         height: 22px !important;
         filter: brightness(1.2);
     }
+
     /* Matrix intro mobile adjustments */
     .matrix-text {
         font-size: 2.5rem !important;
         letter-spacing: 0.1em;
     }
+
     .matrix-subtitle {
         font-size: 1rem !important;
         letter-spacing: 0.2em;
     }
+
     .matrix-container {
         padding: 0 20px;
     }
 }
-@media (max-height: 700px) {
-    .cardContainer .card{
-        width: auto;
-    }
-    .playlists {
-        height: calc(100vh - 140px) !important;
-    }
-    .cardContainer {
-        max-height: calc(100vh - 180px) !important;
-    }
-    .library {
-        min-height: calc(100vh - 160px) !important;
-        max-height: calc(100vh - 160px) !important;
-    }
-    .songlist {
-        height: calc(100vh - 280px) !important;
-    }
-    .matrix-text {
-        font-size: 2.5rem !important;
-    }
-    .matrix-subtitle {
-        font-size: 1rem !important;
-    }
-}
-@media (max-height: 600px) {
-    .cardContainer .card{
-        width: auto;
-    }
-    .right {
-        padding-bottom: 100px !important;
-    }
-    .playlists {
-        height: calc(100vh - 120px) !important;
-    }
-    .cardContainer {
-        max-height: calc(100vh - 160px) !important;
-    }
-    .playbar {
-        padding: 10px 8px !important;
-        gap: 6px !important;
-    }
-    .library {
-        min-height: calc(100vh - 140px) !important;
-        max-height: calc(100vh - 140px) !important;
-    }
-    .songlist {
-        height: calc(100vh - 260px) !important;
-    }
-    .matrix-text {
-        font-size: 2.2rem !important;
-        margin-bottom: 0.5rem;
-    }
-    .matrix-subtitle {
-        font-size: 0.9rem !important;
-    }
-}
-@media (max-height: 500px) {
-    .cardContainer .card{
-        width: auto;
-    }
-    .matrix-text {
-        font-size: 2.2rem !important;
-        margin-bottom: 0.3rem;
-    }
-    .matrix-subtitle {
-        font-size: 0.9rem !important;
-    }
-}
-@media (max-width: 480px) {
-    .cardContainer .card{
-        width: auto;
-    }
-    .card {
-        width: 120px !important;
-        margin: 5px 4px;
-        padding: 8px 6px;
-    }
-    .card img {
-        max-width: 120px;
-    }
-    .card h2 {
-        font-size: 13px;
-    }
-    .play {
-        top: 100px !important;
-        right: 12px !important;
-    }
-    .play svg {
-        width: 35px !important;
-        height: 35px !important;
-    }
-    .left.show {
-        width: 260px !important;
-        min-width: 260px !important;
-    }
-    .songlist .info {
-        width: 120px !important;
-        font-size: 12px;
-    }
-    .songinfo {
-        max-width: 140px;
-        font-size: 12px !important;
-    }
-    .songbutton {
-        gap: 12px;
-    }
-    .songbutton img {
-        width: 28px !important;
-        height: 28px !important;
-    }
-    .timevol {
-        gap: 8px;
-    }
-    .songtime {
-        font-size: 10px !important;
-    }
-    .volume img {
-        width: 18px;
-        height: 18px;
-    }
-    .range input {
-        width: 60px;
-    }
-    .playlists h1 {
-        font-size: 20px !important;
-    }
-    .header {
-        padding: 8px 0 !important;
-        min-height: 50px;
-    }
-    .header .nav {
-        padding: 0 10px !important;
-    }
-    .header .nav svg {
-        width: 18px !important;
-        height: 18px !important;
-    }
-    .buttons {
-        padding-right: 12px !important;
-        gap: 4px !important;
-    }
-    .loginbtn {
-        padding: 5px 10px !important;
-        font-size: 12px !important;
-        min-width: 55px !important;
-        border-radius: 16px;
-    }
-    .signupbtn {
-        padding: 5px 8px !important;
-        font-size: 12px !important;
-    }
-    .noirhythm-logo {
-        width: 140px !important;
-        max-height: 50px !important;
-    }
-    .playbar {
-        width: 99vw !important;
-        bottom: 3px;
-        padding: 8px 6px;
-        border-radius: 10px;
-    }
-    .matrix-text {
-        font-size: 2rem !important;
-        letter-spacing: 0.05em;
-    }
-    .matrix-subtitle {
-        font-size: 0.9rem !important;
-        letter-spacing: 0.15em;
-    }
-    .matrix-container {
-        padding: 0 15px;
-    }
-}
+
+/* ===========================================
+   TABLET RESPONSIVE (769px - 1199px)
+   =========================================== */
 @media (min-width: 769px) and (max-width: 1199px) {
-    .cardContainer .card{
-        width: auto;
+    /* Prevent horizontal overflow */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
     }
+
+    .container {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
     .cardContainer {
-        padding: 0 20px;
+        padding: 0 20px !important;
         justify-content: flex-start;
         max-height: calc(100vh - 180px) !important;
         overflow-y: auto;
+        overflow-x: hidden !important;
         gap: 12px;
+        width: 100% !important;
+        max-width: 100% !important;
     }
+
     .card {
         width: 160px !important;
-        margin: 10px 8px;
-        padding: 15px 12px;
+        max-width: 160px !important;
+        margin: 10px 8px !important;
+        padding: 15px 12px !important;
         background: rgba(29, 185, 84, 0.08);
         border: 1px solid rgba(29, 185, 84, 0.25);
+        flex-shrink: 0;
+        overflow: hidden;
     }
+
     .card:hover {
         background: rgba(29, 185, 84, 0.15);
         transform: translateY(-3px);
         box-shadow: 0 10px 25px rgba(29, 185, 84, 0.25);
     }
+
     .card img {
-        max-width: 160px;
+        max-width: 160px !important;
+        width: 100% !important;
+        height: auto;
     }
+
     .card h2 {
-        font-size: 15px;
+        font-size: 15px !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .play {
         top: 130px !important;
         right: 18px !important;
     }
+
     .left.show {
         width: 320px !important;
         min-width: 320px !important;
+        max-width: 320px !important;
+        overflow: hidden !important;
     }
-    /* ====== FIXED PLAYBAR FOR 769px-1199px ====== */
+
+    /* FIXED TABLET PLAYBAR */
     .playbar {
-        width: 92vw !important;
-        padding: 14px 20px;
-        /* This dark background is good, keeping it */
+        width: calc(100vw - 40px) !important;
+        max-width: calc(100vw - 40px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        padding: 14px 20px !important;
         background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
         border: 1px solid rgba(29, 185, 84, 0.3);
+        overflow: hidden !important;
     }
+
+    .flexbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+
     .songlist {
         height: calc(100vh - 300px) !important;
+        overflow-x: hidden !important;
     }
+
     .songlist .info {
-        width: 180px;
-        font-size: 15px;
+        width: 180px !important;
+        max-width: 180px !important;
+        font-size: 15px !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .songinfo {
         font-size: 16px !important;
-        max-width: 250px;
+        max-width: 250px !important;
         color: #fff !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
     .songbutton img {
         width: 32px !important;
         height: 32px !important;
     }
+
     .timevol {
-        gap: 12px;
+        gap: 12px !important;
+        flex-shrink: 0;
+        min-width: fit-content;
+        overflow: hidden;
     }
+
     .volume img {
-        width: 22px;
-        height: 22px;
+        width: 22px !important;
+        height: 22px !important;
     }
+
     .range input {
-        width: 90px;
+        width: 90px !important;
+        max-width: 90px !important;
     }
+
     .playlists h1 {
         font-size: 26px !important;
         color: #fff;
     }
+
     .playlists {
         height: calc(100vh - 150px) !important;
         background: #1a1a1a;
+        overflow-x: hidden !important;
     }
+
+    /* FIXED TABLET BUTTONS */
     .buttons {
         padding-right: 18px !important;
         gap: 10px !important;
+        flex-shrink: 0 !important;
+        min-width: fit-content !important;
+        overflow: hidden !important;
     }
+
     .signupbtn {
         padding: 7px 12px !important;
         font-size: 15px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
     }
+
     .loginbtn {
         padding: 9px 15px !important;
         font-size: 15px !important;
         min-width: 70px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
     }
+
     .header .nav {
         padding: 0 18px !important;
+        overflow: hidden !important;
     }
+
     .noirhythm-logo {
         width: 175px !important;
+        max-width: 175px !important;
         max-height: 60px !important;
     }
+
     .library {
         background: rgba(29, 185, 84, 0.08);
         border: 1px solid rgba(29, 185, 84, 0.25);
+        overflow-x: hidden !important;
     }
+
     .home {
         background: rgba(29, 185, 84, 0.12);
         border: 1px solid rgba(29, 185, 84, 0.3);
     }
 }
+
+/* ===========================================
+   DESKTOP RESPONSIVE (1200px+)
+   =========================================== */
 @media (min-width: 1200px) {
-    .cardContainer .card{
-        width: auto;
-    }
     .left {
-        width: 25vw;
+        width: 25vw !important;
+        max-width: 25vw !important;
+        overflow: hidden !important;
     }
+
     .right {
-        width: 75vw;
+        width: 75vw !important;
+        max-width: 75vw !important;
+        overflow: hidden !important;
     }
-    /* ====== FIXED PLAYBAR FOR 1200px+ ====== */
+
+    /* FIXED DESKTOP PLAYBAR */
     .playbar {
-        width: 72vw !important;
-        /* CHANGED: Ensuring dark theme is maintained */
+        width: calc(75vw - 60px) !important;
+        max-width: calc(75vw - 60px) !important;
+        left: auto !important;
+        right: 30px !important;
+        transform: none !important;
         background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden !important;
     }
+
+    .flexbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+
     .card {
-        width: 170px;
+        width: 170px !important;
+        max-width: 170px !important;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
     }
+
     .card:hover {
         background: rgba(255, 255, 255, 0.1);
         transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
+
     .songlist .info {
-        width: 344px;
+        width: 344px !important;
+        max-width: 344px !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
+
+    .songinfo {
+        max-width: 300px !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     .buttons {
         padding-right: 25px !important;
         gap: 12px !important;
+        flex-shrink: 0 !important;
+        min-width: fit-content !important;
+        overflow: hidden !important;
     }
+
     .signupbtn {
         padding: 8px 12px !important;
         font-size: 16px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
     }
+
     .loginbtn {
         padding: 10px 16px !important;
         font-size: 16px !important;
         min-width: 78px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
     }
+
     .noirhythm-logo {
         width: 190px !important;
+        max-width: 190px !important;
         max-height: 62px !important;
     }
-}
-@media (min-width: 1400px) {
-    .cardContainer .card{
-        width: auto;
-    }
-    .left {
-        width: 20vw;
-    }
-    .right {
-        width: 80vw;
-    }
-    .playbar {
-        width: 77vw !important;
-    }
-    .buttons {
-        padding-right: 30px !important;
-    }
-    .noirhythm-logo {
-        width: 200px !important;
-        max-height: 65px !important;
-    }
-}
-@media (min-width: 1600px) {
-    .cardContainer .card{
-        width: auto;
-    }
-    .left {
-        width: 18vw;
-    }
-    .right {
-        width: 82vw;
-    }
-    .playbar {
-        width: 79vw !important;
-    }
+
     .cardContainer {
-        padding: 0 30px;
-        gap: 15px;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
-    .card {
-        width: 180px;
-        margin: 12px;
-        padding: 20px;
-    }
-    .buttons {
-        padding-right: 35px !important;
-    }
-    .noirhythm-logo {
-        width: 210px !important;
-        max-height: 68px !important;
+
+    .timevol {
+        flex-shrink: 0;
+        min-width: fit-content;
+        overflow: hidden;
     }
 }
-@media screen and (orientation: landscape) and (max-height: 500px) {
+
+/* ===========================================
+   SMALLER MOBILE DEVICES (480px and below)
+   =========================================== */
+@media (max-width: 480px) {
+    .card {
+        width: 120px !important;
+        max-width: 120px !important;
+        margin: 5px 4px !important;
+        padding: 8px 6px !important;
+    }
+
+    .card img {
+        max-width: 120px !important;
+    }
+
+    .card h2 {
+        font-size: 13px !important;
+    }
+
+    .play {
+        top: 100px !important;
+        right: 12px !important;
+    }
+
+    .play svg {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .left.show {
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+    }
+
+    .songlist .info {
+        width: 120px !important;
+        max-width: 120px !important;
+        font-size: 12px !important;
+    }
+
+    .songinfo {
+        max-width: 140px !important;
+        font-size: 12px !important;
+    }
+
+    .songbutton {
+        gap: 12px !important;
+    }
+
+    .songbutton img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .timevol {
+        gap: 8px !important;
+    }
+
+    .songtime {
+        font-size: 10px !important;
+    }
+
+    .volume img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .range input {
+        width: 60px !important;
+        max-width: 60px !important;
+    }
+
+    .playlists h1 {
+        font-size: 20px !important;
+    }
+
+    .header {
+        padding: 8px 0 !important;
+        min-height: 50px !important;
+    }
+
+    .header .nav {
+        padding: 0 10px !important;
+    }
+
+    .header .nav svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .buttons {
+        padding-right: 12px !important;
+        gap: 4px !important;
+        max-width: 45% !important;
+    }
+
+    .loginbtn {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+        min-width: 55px !important;
+        max-width: 70px !important;
+        border-radius: 16px !important;
+    }
+
+    .signupbtn {
+        padding: 5px 8px !important;
+        font-size: 12px !important;
+        max-width: 60px !important;
+    }
+
+    .noirhythm-logo {
+        width: 140px !important;
+        max-width: 140px !important;
+        max-height: 50px !important;
+    }
+
+    .playbar {
+        width: calc(100vw - 10px) !important;
+        max-width: calc(100vw - 10px) !important;
+        bottom: 3px !important;
+        padding: 8px 6px !important;
+        border-radius: 10px !important;
+    }
+
     .matrix-text {
         font-size: 2rem !important;
-        margin-bottom: 0.3rem;
+        letter-spacing: 0.05em;
     }
+
     .matrix-subtitle {
-        font-size: 0.8rem !important;
+        font-size: 0.9rem !important;
+        letter-spacing: 0.15em;
     }
-    .playbar {
-        bottom: 3px !important;
-        padding: 8px !important;
-    }
-    .right {
-        padding-bottom: 80px !important;
-    }
-    .playlists {
-        height: calc(100vh - 100px) !important;
-    }
-    .cardContainer {
-        max-height: calc(100vh - 140px) !important;
+
+    .matrix-container {
+        padding: 0 15px;
     }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .matrix-text {
-        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
-    }
-    .card img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-    .noirhythm-logo {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    .matrix-intro,
-    .card,
-    .songbutton img,
-    .play,
-    .hamburger,
-    .close,
-    .songlist ul li {
-        transition: none !important;
-        animation: none !important;
-    }
-    .matrix-text,
-    .matrix-subtitle {
-        animation: none !important;
-    }
-}
-@media (prefers-color-scheme: light) {
-    .matrix-intro {
-        background: #f0f0f0;
-    }
-    .matrix-text,
-    .matrix-subtitle {
-        color: #333;
-        text-shadow: 0 0 10px #333;
-    }
-    #matrix-canvas {
-        filter: invert(1);
-    }
-}
-.container {
-    display: flex;
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-/* Desktop styles (default) */
-.left {
-    width: 25vw;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-}
-.right {
-    width: 75vw;
-    flex-grow: 1;
-}
-.hamburger, .close {
-    display: none;
-}
+
+/* ===========================================
+   GENERAL RESPONSIVE UTILITIES
+   =========================================== */
+
+/* Hide sidebar by default on smaller screens */
 @media (max-width: 1199px) {
-    .cardContainer .card{
-        width: auto;
-    }
     .hamburger {
         display: block !important;
         cursor: pointer;
         z-index: 1003;
     }
+
     .close {
         display: block !important;
         position: absolute;
@@ -884,118 +996,267 @@
         border-radius: 50%;
         padding: 4px;
     }
+
     /* Hide left sidebar by default */
     .left {
         width: 0 !important;
         min-width: 0 !important;
+        max-width: 0 !important;
         position: fixed;
         top: 0;
         left: -100%;
         height: 100vh;
         z-index: 1002;
         transition: left 0.3s ease, width 0.3s ease;
-        overflow: hidden;
+        overflow: hidden !important;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(10px);
         border-right: 1px solid rgba(29, 185, 84, 0.3);
     }
+
     /* Show left sidebar when active */
     .left.show {
-        left: 0;
-        width: 300px !important;
-        min-width: 300px !important;
+        left: 0 !important;
         box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
     }
+
     /* Right takes full width when left is hidden */
     .right {
         width: 100vw !important;
+        max-width: 100vw !important;
         flex-grow: 1;
         margin: 0;
         padding-bottom: 100px;
         background: #111;
+        overflow-x: hidden !important;
     }
-    /* Adjust playbar for full width */
-    .playbar {
-        width: 95vw !important;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 999;
-        max-width: none;
-        /* Ensuring dark theme is maintained */
-        background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-    }
+
     /* Main content area adjustments */
     .playlists {
-        height: calc(100vh - 140px) !important;
-        overflow-y: auto;
-        padding-bottom: 20px;
+        overflow-x: hidden !important;
     }
+
     .cardContainer {
-        max-height: calc(100vh - 200px) !important;
-        padding-bottom: 20px;
-        overflow-y: auto;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
-    /* Button adjustments for tablet and below */
-    .buttons {
-        padding-right: 20px !important;
-        gap: 8px !important;
-        margin-right: 0 !important;
-        flex-shrink: 0;
-        justify-content: flex-end;
-        align-items: center;
+}
+
+/* Height-specific adjustments */
+@media (max-height: 700px) {
+    .playlists {
+        height: calc(100vh - 140px) !important;
     }
-    .signupbtn {
-        padding: 6px 10px !important;
-        font-size: 14px !important;
-        font-weight: 600;
+
+    .cardContainer {
+        max-height: calc(100vh - 180px) !important;
     }
-    .loginbtn {
-        padding: 8px 14px !important;
-        font-size: 14px !important;
-        font-weight: 600;
-        min-width: 65px !important;
-        white-space: nowrap;
-    }
-    .header {
-        padding: 20px 0 !important;
-        width: 100%;
-        overflow: visible;
-        background: linear-gradient(135deg, #000 0%, #111 100%);
-    }
-    /* NoirRhythm logo adjustments for tablet */
-    .noirhythm-logo {
-        width: 170px !important;
-        max-height: 58px !important;
-    }
-    /* Sidebar content adjustments */
+
     .library {
         min-height: calc(100vh - 160px) !important;
         max-height: calc(100vh - 160px) !important;
-        overflow-y: auto;
     }
+
     .songlist {
         height: calc(100vh - 280px) !important;
-        overflow-y: auto;
-    }
-    /* Enhanced hover effects for tablet */
-    .card {
-        transition: all 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
     }
 }
+
+@media (max-height: 600px) {
+    .right {
+        padding-bottom: 100px !important;
+    }
+
+    .playlists {
+        height: calc(100vh - 120px) !important;
+    }
+
+    .cardContainer {
+        max-height: calc(100vh - 160px) !important;
+    }
+
+    .playbar {
+        padding: 10px 8px !important;
+        gap: 6px !important;
+    }
+
+    .library {
+        min-height: calc(100vh - 140px) !important;
+        max-height: calc(100vh - 140px) !important;
+    }
+
+    .songlist {
+        height: calc(100vh - 260px) !important;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .matrix-text {
+        font-size: 2rem !important;
+        margin-bottom: 0.3rem;
+    }
+
+    .matrix-subtitle {
+        font-size: 0.8rem !important;
+    }
+
+    .playbar {
+        bottom: 3px !important;
+        padding: 8px !important;
+    }
+
+    .right {
+        padding-bottom: 80px !important;
+    }
+
+    .playlists {
+        height: calc(100vh - 100px) !important;
+    }
+
+    .cardContainer {
+        max-height: calc(100vh - 140px) !important;
+    }
+}
+
+/* Ultra-wide screen adjustments */
+@media (min-width: 1400px) {
+    .left {
+        width: 20vw !important;
+        max-width: 20vw !important;
+    }
+
+    .right {
+        width: 80vw !important;
+        max-width: 80vw !important;
+    }
+
+    .playbar {
+        width: calc(80vw - 60px) !important;
+        max-width: calc(80vw - 60px) !important;
+    }
+
+    .buttons {
+        padding-right: 30px !important;
+    }
+
+    .noirhythm-logo {
+        width: 200px !important;
+        max-width: 200px !important;
+        max-height: 65px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .left {
+        width: 18vw !important;
+        max-width: 18vw !important;
+    }
+
+    .right {
+        width: 82vw !important;
+        max-width: 82vw !important;
+    }
+
+    .playbar {
+        width: calc(82vw - 60px) !important;
+        max-width: calc(82vw - 60px) !important;
+    }
+
+    .cardContainer {
+        padding: 0 30px !important;
+        gap: 15px !important;
+    }
+
+    .card {
+        width: 180px !important;
+        max-width: 180px !important;
+        margin: 12px !important;
+        padding: 20px !important;
+    }
+
+    .buttons {
+        padding-right: 35px !important;
+    }
+
+    .noirhythm-logo {
+        width: 210px !important;
+        max-width: 210px !important;
+        max-height: 68px !important;
+    }
+}
+
+/* ===========================================
+   ACCESSIBILITY & PERFORMANCE OPTIMIZATIONS
+   =========================================== */
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .matrix-text {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    }
+
+    .card img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    .noirhythm-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .matrix-intro,
+    .card,
+    .songbutton img,
+    .play,
+    .hamburger,
+    .close,
+    .songlist ul li {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .matrix-text,
+    .matrix-subtitle {
+        animation: none !important;
+    }
+}
+
+/* Dark/Light theme preferences */
+@media (prefers-color-scheme: light) {
+    .matrix-intro {
+        background: #f0f0f0;
+    }
+
+    .matrix-text,
+    .matrix-subtitle {
+        color: #333;
+        text-shadow: 0 0 10px #333;
+    }
+
+    #matrix-canvas {
+        filter: invert(1);
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     .matrix-intro {
         background: #000;
     }
+
     .matrix-text,
     .matrix-subtitle {
         color: #00ff00;
         text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
     }
 }
+
+/* Print styles */
 @media print {
     .matrix-intro,
     .playbar,
@@ -1003,11 +1264,13 @@
     .close {
         display: none !important;
     }
+
     .container {
         display: block;
         width: 100%;
         height: auto;
     }
+
     .left, .right {
         width: 100%;
         margin: 0;
@@ -1015,6 +1278,7 @@
         background: white !important;
         color: black !important;
     }
+
     .card {
         break-inside: avoid;
         margin-bottom: 20px;
@@ -1022,37 +1286,47 @@
         background: white !important;
     }
 }
+
+/* Touch device optimizations */
 @media (hover: hover) {
     .card:hover .play {
         opacity: 1;
         transform: translateY(0);
     }
+
     .songbutton img:hover {
         transform: scale(1.1);
         filter: brightness(1.2);
     }
 }
+
 @media (hover: none) {
     .play {
         opacity: 1;
         transform: translateY(0);
     }
+
     .card:active {
         transform: scale(0.98);
     }
 }
+
+/* Enhanced animations for capable devices */
 @media (prefers-reduced-motion: no-preference) {
     .card {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .songbutton img {
         transition: all 0.2s ease-in-out;
     }
+
     .play {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
-/* Focus indicators */
+
+/* Focus indicators for accessibility */
 .card:focus-visible,
 .songbutton img:focus-visible,
 .play:focus-visible,
@@ -1062,6 +1336,259 @@
     outline-offset: 2px;
 }
 
+/* Container and overflow fixes for all screen sizes */
+.container {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* Desktop styles (default) */
+.left {
+    width: 25vw;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    overflow: hidden !important;
+}
+
+.right {
+    width: 75vw;
+    flex-grow: 1;
+    overflow: hidden !important;
+}
+
+.hamburger, .close {
+    display: none;
+}
+
+/* Ensure no elements exceed viewport width */
+* {
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling globally */
+html {
+    overflow-x: hidden !important;
+}
+
+body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* Additional overflow fixes for specific elements */
+.flexbar {
+    overflow: hidden !important;
+    max-width: 100% !important;
+}
+
+.timevol {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+}
+
+.songinfo {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    flex-shrink: 1 !important;
+}
+
+.buttons {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+}
+
+.songbutton {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.volume {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+}
+
+.range {
+    overflow: hidden !important;
+}
+
+.range input {
+    overflow: hidden !important;
+}
+
+/* Ensure all card elements are properly contained */
+.cardContainer {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.card {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.card img {
+    overflow: hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.card h2 {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Library and songlist overflow fixes */
+.library {
+    overflow: hidden !important;
+}
+
+.songlist {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.songlist ul {
+    overflow: hidden !important;
+}
+
+.songlist ul li {
+    overflow: hidden !important;
+}
+
+.songlist .info {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.songlist .info div {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.playnow {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.playnow span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Header overflow fixes */
+.header {
+    overflow: hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.header .nav {
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.header .nav .flex {
+    overflow: hidden !important;
+}
+
+/* Playlists container overflow fixes */
+.playlists {
+    overflow: hidden !important;
+}
+
+.playlists h1 {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Home section overflow fixes */
+.home {
+    overflow: hidden !important;
+}
+
+.home ul {
+    overflow: hidden !important;
+}
+
+.home ul li {
+    overflow: hidden !important;
+}
+
+.home ul li span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* NoirRhythm logo container fixes */
+.noirhythm-brand {
+    overflow: hidden !important;
+}
+
+.noirhythm-logo {
+    overflow: hidden !important;
+    max-width: 100% !important;
+}
+
+/* Playbar positioning and overflow final fixes */
+.playbar {
+    overflow: hidden !important;
+    max-width: calc(100vw - 20px) !important;
+}
+
+.seekbar {
+    overflow: hidden !important;
+    max-width: 100% !important;
+}
+
+.circle {
+    overflow: hidden !important;
+}
+
+/* Final safety net for any remaining overflow issues */
+@media (max-width: 768px) {
+    * {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    .playbar {
+        position: fixed !important;
+        bottom: 5px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-width: calc(100vw - 20px) !important;
+        transform: none !important;
+    }
+    
+    .buttons {
+        max-width: 40% !important;
+    }
+    
+    .loginbtn,
+    .signupbtn {
+        max-width: 80px !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+    }
+}
 
 
 
