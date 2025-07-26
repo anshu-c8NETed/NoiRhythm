@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -15,12 +16,14 @@
     outline: none !important;
     box-shadow: none !important;
 }
+
 /* Reset all button and interactive elements */
 button, input, svg, img {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
 }
+
 /* ===========================================
    MATRIX INTRO STYLES
    =========================================== */
@@ -38,9 +41,11 @@ button, input, svg, img {
     overflow: hidden;
     transition: opacity 0.8s ease-out;
 }
+
 .matrix-intro.fade-out {
     opacity: 0;
 }
+
 .matrix-container {
     position: relative;
     z-index: 10000;
@@ -49,6 +54,7 @@ button, input, svg, img {
     font-family: 'Courier New', monospace;
     text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
 }
+
 .matrix-text {
     font-size: 4rem;
     font-weight: bold;
@@ -57,12 +63,14 @@ button, input, svg, img {
     text-transform: uppercase;
     animation: matrix-glow 2s ease-in-out infinite alternate;
 }
+
 .matrix-subtitle {
     font-size: 1.2rem;
     opacity: 0.8;
     letter-spacing: 0.3em;
     animation: matrix-pulse 1.5s ease-in-out infinite;
 }
+
 #matrix-canvas {
     position: absolute;
     top: 0;
@@ -71,6 +79,7 @@ button, input, svg, img {
     height: 100%;
     z-index: 9998;
 }
+
 @keyframes matrix-glow {
     0% {
         text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
@@ -79,6 +88,7 @@ button, input, svg, img {
         text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
     }
 }
+
 @keyframes matrix-pulse {
     0%, 100% {
         opacity: 0.8;
@@ -87,6 +97,7 @@ button, input, svg, img {
         opacity: 0.4;
     }
 }
+
 /* ===========================================
    MAIN APPLICATION STYLES
    =========================================== */
@@ -96,29 +107,43 @@ button, input, svg, img {
     transform: scale(0.95);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+
 #main-app.show {
     opacity: 1;
     transform: scale(1);
 }
+
 body {
     background: #000;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
+    max-width: 100vw;
 }
-.cardContainer .card{
-    width: auto;
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    color: #fff;
 }
+
 .container {
     display: flex;
     width: 100vw;
     min-height: 100vh;
     background: #000;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
+
 .songlist li.active {
     background-color: #222;
     border-left: 4px solid #1db954;
 }
+
 .flexbar {
     display: flex;
     align-items: center;
@@ -126,28 +151,39 @@ body {
     gap: 20px;
     justify-content: space-between;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
+
 .left {
     width: 25vw;
+    max-width: 25vw;
     padding: 5px;
     background: #000;
     position: relative;
     z-index: 100;
+    overflow: hidden;
+    flex-shrink: 0;
 }
+
 .right {
     width: 75vw;
+    max-width: 75vw;
     margin: 16px 0;
     position: relative;
     background: #111;
     border-radius: 8px;
     overflow: hidden;
+    flex-grow: 1;
 }
+
 .home {
     padding: 11px;
     background: #181818;
     border-radius: 8px;
     margin-bottom: 8px;
 }
+
 /* NoirRhythm Logo Styling */
 .noirhythm-brand {
     display: flex;
@@ -157,6 +193,7 @@ body {
     margin-bottom: 8px;
     margin-left: 0;
 }
+
 .noirhythm-logo {
     width: 180px;
     height: auto;
@@ -164,7 +201,9 @@ body {
     margin: 0;
     padding: 0;
     margin-left: -10px;
+    max-width: 100%;
 }
+
 .home ul li.noirhythm-brand {
     width: auto;
     gap: 0;
@@ -172,40 +211,49 @@ body {
     margin-bottom: 5px;
     margin-left: 0;
 }
+
 .timevol {
     justify-self: end;
     display: flex;
     align-items: center;
-    gap: 15px; /* Increased gap for better spacing */
+    gap: 15px;
     white-space: nowrap;
-    padding: 0 5px; /* Add padding for visual balance */
+    padding: 0 5px;
+    flex-shrink: 0;
+    min-width: fit-content;
 }
-/* UPDATED SIGN UP BUTTON */
+
+/* FIXED SIGN UP BUTTON - No overflow issues */
 .signupbtn {
     cursor: pointer;
-    color: #b3b3b3; /* Lighter color for better contrast */
-    background-color: transparent; /* Make background transparent */
-    border: 1.5px solid #535353 !important; /* Thicker border for better visibility */
+    color: #b3b3b3;
+    background-color: transparent;
+    border: 1.5px solid #535353 !important;
     outline: none !important;
     box-shadow: none !important;
-    font-size: 14px; /* Slightly smaller font */
-    font-weight: 600; /* Increased font weight */
-    padding: 12px 24px; /* Better padding for visual balance */
-    border-radius: 25px; /* More rounded for modern look */
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 25px;
     transition: all 0.3s ease;
     white-space: nowrap;
-    text-transform: uppercase; /* Add uppercase for better style */
-    letter-spacing: 0.5px; /* Add letter spacing */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    min-width: fit-content;
+    overflow: hidden;
 }
+
 .signupbtn:hover {
-    transform: scale(1.02); /* Subtle scale effect */
+    transform: scale(1.02);
     color: #fff;
-    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+    background-color: rgba(255, 255, 255, 0.1);
     border-color: #fff !important;
     box-shadow: none !important;
     outline: none !important;
 }
-/* COMPLETELY REDESIGNED PLAY BUTTON - NO SHADOWS/OUTLINES */
+
+/* FIXED PLAY BUTTON - No shadows/outlines */
 .play {
     cursor: pointer;
     position: absolute;
@@ -222,6 +270,7 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .play svg {
     outline: none !important;
     box-shadow: none !important;
@@ -229,21 +278,20 @@ body {
     background: transparent;
     transition: all 0.3s ease;
 }
-.play svg circle {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
-}
+
+.play svg circle,
 .play svg path {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
 }
+
 .card:hover .play {
     opacity: 1;
     transform: translateY(0);
     z-index: 15;
 }
+
 .play:hover {
     transform: scale(1.1);
     background: transparent;
@@ -251,48 +299,56 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .play:focus {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
 }
-/* UPDATED LOGIN BUTTON */
+
+/* FIXED LOGIN BUTTON - Proper responsive design */
 .loginbtn {
     cursor: pointer;
     color: #000;
     background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
-    font-weight: 700; /* Increased font weight */
-    border-radius: 25px; /* More rounded to match signup button */
-    padding: 12px 24px; /* Better padding to match signup */
-    min-width: 85px; /* Slightly wider */
-    font-size: 14px; /* Match signup button font size */
+    font-weight: 700;
+    border-radius: 25px;
+    padding: 8px 16px;
+    min-width: 70px;
+    font-size: 14px;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
     white-space: nowrap;
     flex-shrink: 0;
     transition: all 0.3s ease;
-    text-transform: uppercase; /* Match signup button */
-    letter-spacing: 0.5px; /* Match signup button */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
 }
+
 .loginbtn:hover {
-    background: linear-gradient(135deg, #1ed760 0%, #22e065 100%); /* Brighter on hover */
-    transform: translateY(-1px) scale(1.02); /* Lift effect with scale */
+    background: linear-gradient(135deg, #1ed760 0%, #22e065 100%);
+    transform: translateY(-1px) scale(1.02);
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
 }
-/* UPDATED BUTTONS CONTAINER */
+
+/* FIXED BUTTONS CONTAINER - No overflow */
 .buttons {
     display: flex;
     align-items: center;
-    gap: 15px; /* Increased gap between buttons */
-    padding-right: 25px;
+    gap: 12px;
+    padding-right: 20px;
     margin-right: 0;
     flex-shrink: 0;
     justify-content: flex-end;
-    height: 100%; /* Ensure full height alignment */
+    height: 100%;
+    min-width: fit-content;
+    overflow: hidden;
 }
+
 .home ul li {
     display: flex;
     gap: 20px;
@@ -307,9 +363,11 @@ body {
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
+
 .home ul li:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
 .home ul li.noirhythm-brand {
     width: auto;
     gap: 0;
@@ -317,13 +375,14 @@ body {
     margin-bottom: 5px;
     cursor: default;
 }
+
 .home ul li.noirhythm-brand:hover {
     background-color: transparent;
 }
-/* UPDATED HEADER */
+
+/* FIXED HEADER - Proper positioning and structure */
 .header {
-    background: linear-gradient(135deg, #000 0%, #111 100%);
-    margin-top: -22px;
+    background: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -332,15 +391,64 @@ body {
     overflow: hidden;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 70px; /* Ensure consistent height */
+    min-height: 70px;
+    max-width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
 }
+
 .header > .nav {
     padding: 0 16px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     height: 100%;
+    overflow: hidden;
 }
+
+.nav .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+}
+
+.nav .hamburger {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 24px;
+    height: 24px;
+}
+
+.nav .hamburger:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.nav svg {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    stroke: #1db954;
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+}
+
+.nav svg:hover {
+    stroke: #1ed760;
+    transform: scale(1.1);
+}
+
 .heading {
     display: flex;
     padding-top: 11px;
@@ -350,6 +458,7 @@ body {
     gap: 8px;
     color: #fff;
 }
+
 .library {
     min-height: 80vh;
     position: relative;
@@ -357,7 +466,9 @@ body {
     border-radius: 8px;
     margin-top: 8px;
     padding: 12px;
+    overflow: hidden;
 }
+
 .playlists {
     font-family: Arial, Helvetica, sans-serif;
     padding: 11px;
@@ -365,8 +476,22 @@ body {
     font-size: smaller;
     background: #111;
     border-radius: 8px;
-    margin-top: 8px;
+    margin-top: 0;
+    overflow: hidden;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
 }
+
+.playlists h1 {
+    margin: 0;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+}
+
 .cardContainer {
     display: flex;
     align-items: center;
@@ -374,12 +499,17 @@ body {
     flex-wrap: wrap;
     margin: 10px;
     overflow-y: auto;
-    max-height: 70vh;
+    overflow-x: hidden;
+    flex-grow: 1;
     margin-top: 15px;
     gap: 10px;
+    max-width: 100%;
+    padding-bottom: 100px;
 }
+
 .card {
     width: 170px;
+    max-width: 170px;
     padding: 18px;
     border-radius: 8px;
     margin: 0px;
@@ -394,7 +524,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     outline: none !important;
     box-shadow: none !important;
+    overflow: hidden;
+    flex-shrink: 0;
 }
+
 .card:hover {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.1);
@@ -402,42 +535,48 @@ body {
     outline: none !important;
     box-shadow: none !important;
 }
+
 .card > * {
     padding-top: 16px;
 }
+
 .card .img {
     width: 100%;
+    max-width: 100%;
     object-fit: contain;
     border-radius: 6px;
 }
+
 .card img {
     border-radius: 6px;
     transition: transform 0.3s ease;
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
+    max-width: 100%;
+    height: auto;
 }
+
 .card:hover img {
     transform: scale(1.05);
 }
-.playlists {
-    margin-top: 7px;
-}
-/* ====== FIXED PLAYBAR ====== */
+
+/* FIXED PLAYBAR - Proper positioning for all devices */
 .playbar {
     position: fixed;
     bottom: 15px;
-    width: 72vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(75vw - 40px);
+    max-width: calc(75vw - 40px);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 21px;
-    /* CHANGED: Dark background by default */
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-    padding: 15px 6px;
+    padding: 15px 20px;
     border-radius: 13px;
     cursor: pointer;
-    /* REMOVED: filter: invert(1); This was causing the light appearance */
     min-height: 39px;
     z-index: 1000;
     transition: all 0.3s ease;
@@ -445,19 +584,24 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     outline: none !important;
     box-shadow: none !important;
+    overflow: hidden;
 }
+
 .playbar:hover {
-    transform: translateY(-2px);
+    transform: translateX(-50%) translateY(-2px);
     outline: none !important;
     box-shadow: none !important;
 }
+
 .songlist ul {
     padding: 0 42px;
     margin-right: 60px;
     padding: 3px;
     padding-top: 3px;
     margin: 3px;
+    overflow-x: hidden;
 }
+
 .songlist ul li {
     list-style-type: none;
     display: flex;
@@ -474,7 +618,9 @@ body {
     transition: all 0.3s ease;
     outline: none !important;
     box-shadow: none !important;
+    overflow: hidden;
 }
+
 .songlist ul li:hover {
     background: rgba(29, 185, 84, 0.1);
     border-color: #1db954;
@@ -482,44 +628,64 @@ body {
     outline: none !important;
     box-shadow: none !important;
 }
+
 .playnow {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
+    flex-shrink: 0;
 }
+
 .songlist .info {
     font-size: 16px;
     width: 344px;
+    max-width: 344px;
     flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
+/* FIXED SCROLLBAR - Single scrollbar only */
 .songlist {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 65vh;
     margin: 14px 0;
     scrollbar-width: thin;
     scrollbar-color: #1db954 #333;
 }
+
 .songlist::-webkit-scrollbar {
     width: 6px;
 }
+
 .songlist::-webkit-scrollbar-track {
     background: #333;
     border-radius: 3px;
 }
+
 .songlist::-webkit-scrollbar-thumb {
     background: #1db954;
     border-radius: 3px;
 }
+
 .playnow span {
     font-size: 14px;
     padding: 12px;
     width: 60px;
+    max-width: 60px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 .seekbar {
     height: 4px;
     width: 100%;
+    max-width: 100%;
     background: rgba(255, 255, 255, 0.3);
     position: absolute;
     border-radius: 10px;
@@ -529,13 +695,16 @@ body {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
+    overflow: hidden;
 }
+
 .seekbar:hover {
     height: 6px;
     margin-top: -40px;
     outline: none !important;
     box-shadow: none !important;
 }
+
 .circle {
     width: 12px;
     height: 12px;
@@ -549,6 +718,7 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .seekbar:hover .circle {
     width: 14px;
     height: 14px;
@@ -556,13 +726,16 @@ body {
     outline: none !important;
     box-shadow: none !important;
 }
+
 .songbutton {
     margin-top: 4px;
     margin-right: -8px;
     display: flex;
     gap: 10px;
     align-items: center;
+    flex-shrink: 0;
 }
+
 .songbutton img {
     cursor: pointer;
     transition: all 0.3s ease;
@@ -571,32 +744,37 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .songbutton img:hover {
     filter: brightness(1);
     transform: scale(1.1);
     outline: none !important;
     box-shadow: none !important;
 }
+
 .songinfo {
     justify-self: start;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* CHANGED: Default color to white to match dark theme */
     color: #fff;
     font-size: 17px;
     position: relative;
     margin-right: 4px;
     font-weight: 500;
+    max-width: 200px;
+    flex-shrink: 1;
 }
+
 .songtime {
-    /* CHANGED: Default color to white to match dark theme */
     color: #fff;
     margin: 11px;
     padding: 1px;
     font-size: 13px;
     font-weight: 500;
+    white-space: nowrap;
 }
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -605,9 +783,11 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .hamburger:hover {
     transform: scale(1.1);
 }
+
 .close {
     display: none;
     cursor: pointer;
@@ -616,36 +796,45 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .close:hover {
     transform: scale(1.1);
     filter: brightness(1.2);
 }
-/* UPDATED VOLUME CONTROLS */
+
+/* FIXED VOLUME CONTROLS */
 .volume {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px; /* Increased gap for better spacing */
-    padding: 0 8px; /* Add padding for better visual balance */
+    gap: 12px;
+    padding: 0 8px;
+    flex-shrink: 0;
+    min-width: fit-content;
 }
+
 .volume img {
     cursor: pointer;
     transition: transform 0.3s ease;
-    width: 24px; /* Set consistent width */
-    height: 24px; /* Set consistent height */
+    width: 24px;
+    height: 24px;
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
 }
+
 .volume img:hover {
     transform: scale(1.1);
 }
+
 .range {
     display: flex;
     align-items: center;
 }
+
 .range input[type="range"] {
-    width: 90px; /* Increased width for better usability */
+    width: 90px;
+    max-width: 90px;
     height: 4px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
@@ -654,8 +843,9 @@ body {
     border: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 0; /* Remove any default margins */
+    margin: 0;
 }
+
 .range input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 12px;
@@ -668,11 +858,13 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .range input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.2);
     outline: none !important;
     box-shadow: none !important;
 }
+
 .range input[type="range"]::-moz-range-thumb {
     width: 12px;
     height: 12px;
@@ -683,29 +875,30 @@ body {
     outline: none !important;
     box-shadow: none !important;
 }
-html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-    padding: 0;
-    margin: 0;
-    background: #000;
-    color: #fff;
-}
-/* Custom scrollbar styles */
-::-webkit-scrollbar {
+
+/* CUSTOM SCROLLBAR - Limited to specific elements only */
+.cardContainer::-webkit-scrollbar,
+.songlist::-webkit-scrollbar {
     width: 8px;
 }
-::-webkit-scrollbar-track {
+
+.cardContainer::-webkit-scrollbar-track,
+.songlist::-webkit-scrollbar-track {
     background: #1a1a1a;
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb {
+
+.cardContainer::-webkit-scrollbar-thumb,
+.songlist::-webkit-scrollbar-thumb {
     background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
+
+.cardContainer::-webkit-scrollbar-thumb:hover,
+.songlist::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
 }
+
 /* Utility classes */
 .bg-black { background-color: #000; }
 .bg-grey { background-color: #181818; }
@@ -717,13 +910,16 @@ html, body {
 .flex { display: flex; }
 .invert { filter: invert(1); }
 .revert { filter: invert(0); }
+
 /* Enhanced hover effects */
 .card h2 {
     transition: color 0.3s ease;
 }
+
 .card:hover h2 {
     color: #1db954;
 }
+
 /* Improved navigation styling */
 .header .nav .flex svg {
     cursor: pointer;
@@ -732,14 +928,17 @@ html, body {
     box-shadow: none !important;
     border: none !important;
 }
+
 .header .nav .flex svg:hover {
     stroke: #1db954;
     transform: scale(1.1);
 }
+
 /* Enhanced loading state */
 .songinfo.loading {
     animation: pulse 1.5s ease-in-out infinite;
 }
+
 @keyframes pulse {
     0%, 100% {
         opacity: 1;
@@ -748,6 +947,5 @@ html, body {
         opacity: 0.5;
     }
 }
-
 
 
