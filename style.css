@@ -253,7 +253,7 @@ html, body {
     outline: none !important;
 }
 
-/* FIXED PLAY BUTTON - No shadows/outlines */
+/* FIXED PLAY BUTTON - Simple and clean, only visible on hover */
 .play {
     cursor: pointer;
     position: absolute;
@@ -265,10 +265,16 @@ html, body {
     z-index: 10;
     background: transparent;
     border-radius: 50%;
-    padding: 4px;
+    padding: 0;
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
+    backdrop-filter: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
 }
 
 .play svg {
@@ -277,6 +283,9 @@ html, body {
     border: none !important;
     background: transparent;
     transition: all 0.3s ease;
+    width: 48px !important;
+    height: 48px !important;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 .play svg circle,
@@ -288,22 +297,19 @@ html, body {
 
 .card:hover .play {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1.02);
     z-index: 15;
 }
 
 .play:hover {
     transform: scale(1.1);
-    background: transparent;
     outline: none !important;
     box-shadow: none !important;
-    border: none !important;
 }
 
 .play:focus {
     outline: none !important;
     box-shadow: none !important;
-    border: none !important;
 }
 
 /* FIXED LOGIN BUTTON - Proper responsive design */
@@ -788,6 +794,7 @@ html, body {
     transform: scale(1.1);
 }
 
+/* FIXED CLOSE BUTTON - Improved visibility and positioning */
 .close {
     display: none;
     cursor: pointer;
@@ -795,11 +802,40 @@ html, body {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1005;
+    width: 32px;
+    height: 32px;
+    background: rgba(29, 185, 84, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(29, 185, 84, 0.5) !important;
+    backdrop-filter: blur(10px);
+}
+
+.close svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #ffffff !important;
+    stroke-width: 2.5 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .close:hover {
     transform: scale(1.1);
-    filter: brightness(1.2);
+    background: rgba(29, 185, 84, 0.4);
+    border-color: #1db954 !important;
+    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3) !important;
+}
+
+.close:hover svg {
+    stroke: #1ed760 !important;
 }
 
 /* FIXED VOLUME CONTROLS */
